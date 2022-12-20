@@ -7,6 +7,7 @@ from os import path
 from csv import writer, QUOTE_ALL
 from datetime import datetime
 from selenium import webdriver
+from providers.globalx import etf_globalx
 
 # Initialisations
 headers = ["TICKER", "NAME", "URL"]
@@ -14,6 +15,9 @@ etfs_list = []
 driver = webdriver.Chrome()
 
 # Scraping
+for etf in etf_globalx(driver):
+    etfs_list.append(etf)
+
 driver.quit()
 
 # File saving
