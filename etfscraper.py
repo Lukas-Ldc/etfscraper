@@ -10,6 +10,7 @@ from selenium import webdriver
 
 from providers.globalx import etf_globalx
 from providers.ishares import etf_ishares
+from providers.vanguard import etf_vanguard
 
 # Initialisations
 headers = ["TICKER", "NAME", "URL"]
@@ -21,6 +22,8 @@ driver.set_window_size(1920, 1080)
 for etf in etf_globalx(driver):
     etfs_list.append(etf)
 for etf in etf_ishares(driver):
+    etfs_list.append(etf)
+for etf in etf_vanguard(driver):
     etfs_list.append(etf)
 
 driver.quit()
