@@ -10,7 +10,7 @@ from selenium import webdriver
 
 from providers.globalx import etf_globalx
 from providers.ishares import etf_ishares_gbr, etf_ishares_usa
-from providers.vanguard import etf_vanguard
+from providers.vanguard import etf_vanguard_irl, etf_vanguard_usa
 
 # Initialisations
 headers = ["TICKER", "NAME", "URL"]
@@ -21,11 +21,17 @@ driver.set_window_size(1920, 1080)
 # Scraping
 for etf in etf_globalx(driver):
     etfs_list.append(etf)
+driver.delete_all_cookies()
 for etf in etf_ishares_gbr(driver):
     etfs_list.append(etf)
+driver.delete_all_cookies()
 for etf in etf_ishares_usa(driver):
     etfs_list.append(etf)
-for etf in etf_vanguard(driver):
+driver.delete_all_cookies()
+for etf in etf_vanguard_irl(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+for etf in etf_vanguard_usa(driver):
     etfs_list.append(etf)
 
 driver.quit()
