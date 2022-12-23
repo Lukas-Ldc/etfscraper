@@ -7,4 +7,5 @@ This script saves you time when searching for Exchange Traded Funds. No need to 
 - <a href="https://www.globalxetfs.com/" target="_blank">Global X</a> (USA)
 - <a href="https://www.invesco.com/" target="_blank">Invesco</a> (IRL, USA)
 - <a href="https://www.blackrock.com/corporate/global-directory#ishares" target="_blank">iShares</a> (GBR, USA)
+- <a href="https://am.jpmorgan.com/" target="_blank">J.P. Morgan</a> (IRL, USA)
 - <a href="https://global.vanguard.com/" target="_blank">Vanguard</a> (IRL, USA)
