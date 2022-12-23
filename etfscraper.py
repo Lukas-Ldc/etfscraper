@@ -10,6 +10,7 @@ from selenium import webdriver
 
 from providers.schwab import etf_schwab
 from providers.globalx import etf_globalx
+from providers.invesco import etf_invesco_irl, etf_invesco_usa
 from providers.ishares import etf_ishares_gbr, etf_ishares_usa
 from providers.vanguard import etf_vanguard_irl, etf_vanguard_usa
 
@@ -24,6 +25,12 @@ for etf in etf_schwab(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 for etf in etf_globalx(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+for etf in etf_invesco_irl(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+for etf in etf_invesco_usa(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 for etf in etf_ishares_gbr(driver):
