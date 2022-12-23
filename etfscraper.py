@@ -9,6 +9,7 @@ from datetime import datetime
 from selenium import webdriver
 
 from providers.schwab import etf_schwab
+from providers.firsttrust import etf_firsttrust
 from providers.globalx import etf_globalx
 from providers.invesco import etf_invesco_irl, etf_invesco_usa
 from providers.ishares import etf_ishares_gbr, etf_ishares_usa
@@ -22,6 +23,9 @@ driver.set_window_size(1920, 1080)
 
 # Scraping
 for etf in etf_schwab(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+for etf in etf_firsttrust(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 for etf in etf_globalx(driver):
