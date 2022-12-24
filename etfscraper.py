@@ -18,6 +18,7 @@ from providers.jpmorgan import etf_jpmorgan_irl, etf_jpmorgan_usa
 from providers.proshares import etf_proshares
 from providers.vaneck import etf_vaneck_irl, etf_vaneck_usa
 from providers.vanguard import etf_vanguard_irl, etf_vanguard_usa
+from providers.wisdomtree import etf_wisdomtree
 
 # Initialisations
 headers = ["TICKER", "NAME", "URL"]
@@ -78,6 +79,10 @@ for etf in etf_vanguard_irl(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 for etf in etf_vanguard_usa(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+
+for etf in etf_wisdomtree(driver):
     etfs_list.append(etf)
 driver.quit()
 

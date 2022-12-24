@@ -24,11 +24,10 @@ def etf_globalx(driver):
     # For each row in the table.
     for etf_row in driver.find_element(By.CSS_SELECTOR, '[aria-live="polite"]').find_elements(By.TAG_NAME, "tr"):
         etf_data = []
-        etf_col = etf_row.find_elements(By.TAG_NAME, "td")
 
-        etf_data.append(etf_col[0].text)  # Ticker
-        etf_data.append(etf_col[1].text)  # Name
-        etf_data.append(etf_col[0].find_element(By.TAG_NAME, "a").get_attribute("href"))  # URL
+        etf_data.append(etf_row.find_elements(By.TAG_NAME, "td")[0].text)  # Ticker
+        etf_data.append(etf_row.find_elements(By.TAG_NAME, "td")[1].text)  # Name
+        etf_data.append(etf_row.find_elements(By.TAG_NAME, "td")[0].find_element(By.TAG_NAME, "a").get_attribute("href"))  # URL
 
         etf_list.append(etf_data)
 
