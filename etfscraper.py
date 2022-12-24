@@ -16,6 +16,7 @@ from providers.invesco import etf_invesco_irl, etf_invesco_usa
 from providers.ishares import etf_ishares_gbr, etf_ishares_usa
 from providers.jpmorgan import etf_jpmorgan_irl, etf_jpmorgan_usa
 from providers.proshares import etf_proshares
+from providers.vaneck import etf_vaneck_irl, etf_vaneck_usa
 from providers.vanguard import etf_vanguard_irl, etf_vanguard_usa
 
 # Initialisations
@@ -28,36 +29,51 @@ driver.set_window_size(1920, 1080)
 for etf in etf_schwab(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
+
 for etf in etf_dimensional(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
+
 for etf in etf_firsttrust(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
+
 for etf in etf_globalx(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
+
 for etf in etf_invesco_irl(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 for etf in etf_invesco_usa(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
+
 for etf in etf_ishares_gbr(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 for etf in etf_ishares_usa(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
+
 for etf in etf_jpmorgan_irl(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 for etf in etf_jpmorgan_usa(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
+
 for etf in etf_proshares(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
+
+for etf in etf_vaneck_irl(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+for etf in etf_vaneck_usa(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+
 for etf in etf_vanguard_irl(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
