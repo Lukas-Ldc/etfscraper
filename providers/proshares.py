@@ -19,7 +19,7 @@ def etf_proshares(driver):
     driver.get("https://www.proshares.com/our-etfs/find-strategic-etfs")
 
     # Waiting for the presence of the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.visibility_of_element_located((By.ID, "overviewBody")))
+    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.ID, "overviewBody")))
 
     # For each row in the table.
     for etf_row in driver.find_element(By.ID, "overviewBody").find_elements(By.TAG_NAME, "tr"):
@@ -34,7 +34,7 @@ def etf_proshares(driver):
     driver.get("https://www.proshares.com/our-etfs/find-leveraged-and-inverse-etfs")
 
     # Waiting for the presence of the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.visibility_of_element_located((By.ID, "overviewBody")))
+    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.ID, "overviewBody")))
 
     # For each row in the table.
     for etf_row in driver.find_element(By.ID, "overviewBody").find_elements(By.TAG_NAME, "tr"):

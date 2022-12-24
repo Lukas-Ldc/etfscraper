@@ -20,7 +20,7 @@ def etf_vaneck_irl(driver):
     driver.get("https://www.vaneck.com/ie/en/fundlisting/overview/etfs/")
 
     # Interaction with legal notice.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "agree")))
+    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "agree")))
     driver.find_element(By.CLASS_NAME, "agree").click()
 
     # Waiting for the presence of the table.
@@ -56,12 +56,12 @@ def etf_vaneck_usa(driver):
     driver.get("https://www.vaneck.com/us/en/etf-mutual-fund-finder/etfs/")
 
     # Interaction with legal notice.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, '[data-ve-gtm="ahp-investor-type"]')))
+    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-ve-gtm="ahp-investor-type"]')))
     WebDriverWait(driver, timeout=10).until(expected_conditions.invisibility_of_element_located((By.ID, "viewport-wide-spinner")))
     driver.find_element(By.CSS_SELECTOR, '[data-ve-gtm="ahp-investor-type"]').click()
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, '[data-id="retail"]')))
+    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-id="retail"]')))
     driver.find_element(By.CSS_SELECTOR, '[data-id="retail"]').click()
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, '[data-ve-gtm="ahp-disclaimer-agree"]')))
+    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-ve-gtm="ahp-disclaimer-agree"]')))
     driver.find_element(By.CSS_SELECTOR, '[data-ve-gtm="ahp-disclaimer-agree"]').click()
 
     # Waiting for the presence of the table.

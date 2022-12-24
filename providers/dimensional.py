@@ -19,19 +19,19 @@ def etf_dimensional(driver):
     driver.get("https://www.dimensional.com/us-en/funds?ft=etf")
 
     # Interaction with cookies.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.ID, "onetrust-reject-all-handler")))
+    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "onetrust-reject-all-handler")))
     driver.find_element(By.ID, "onetrust-reject-all-handler").click()
 
     # Interaction with the type of investor.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, '[data-a-lbl="an Individual Investor"]')))
+    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-a-lbl="an Individual Investor"]')))
     driver.find_element(By.CSS_SELECTOR, '[data-a-lbl="an Individual Investor"]').click()
 
     # Reloading page with ETF selector.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.visibility_of_element_located((By.CLASS_NAME, "tools-fund-listing-table-scrollable-container")))
+    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "tools-fund-listing-table-scrollable-container")))
     driver.get("https://www.dimensional.com/us-en/funds?ft=etf")
 
     # Waiting for the presence of the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.visibility_of_element_located((By.CLASS_NAME, "tools-fund-listing-table-scrollable-container")))
+    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "tools-fund-listing-table-scrollable-container")))
 
     # For each row in the table.
     for etf_row in driver.find_element(By.CLASS_NAME, "tools-fund-listing-table-scrollable-container").find_elements(By.CSS_SELECTOR, '[role="rowgroup"]'):

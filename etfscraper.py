@@ -8,7 +8,7 @@ from csv import writer, QUOTE_ALL
 from datetime import datetime
 from selenium import webdriver
 
-from providers.schwab import etf_schwab
+from providers.cschwab import etf_cschwab
 from providers.dimensional import etf_dimensional
 from providers.firsttrust import etf_firsttrust
 from providers.globalx import etf_globalx
@@ -26,7 +26,7 @@ driver = webdriver.Chrome()
 driver.set_window_size(1920, 1080)
 
 # Scraping
-for etf in etf_schwab(driver):
+for etf in etf_cschwab(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 
