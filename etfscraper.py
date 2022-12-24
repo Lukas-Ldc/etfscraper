@@ -15,6 +15,7 @@ from providers.globalx import etf_globalx
 from providers.invesco import etf_invesco_irl, etf_invesco_usa
 from providers.ishares import etf_ishares_gbr, etf_ishares_usa
 from providers.jpmorgan import etf_jpmorgan_irl, etf_jpmorgan_usa
+from providers.proshares import etf_proshares
 from providers.vanguard import etf_vanguard_irl, etf_vanguard_usa
 
 # Initialisations
@@ -52,6 +53,9 @@ for etf in etf_jpmorgan_irl(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 for etf in etf_jpmorgan_usa(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+for etf in etf_proshares(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 for etf in etf_vanguard_irl(driver):
