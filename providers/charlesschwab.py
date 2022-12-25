@@ -7,7 +7,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 
 
-def etf_cschwab(driver):
+def etf_charlesschwab(driver):
     """This function retrieves ETFs from the following URL: https://www.schwab.com/research/etfs/tools/schwab-etfs
 
     Arguments:

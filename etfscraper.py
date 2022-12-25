@@ -8,10 +8,11 @@ from csv import writer, QUOTE_ALL
 from datetime import datetime
 from selenium import webdriver
 
-from providers.cschwab import etf_cschwab
+from providers.charlesschwab import etf_charlesschwab
 from providers.dimensional import etf_dimensional
 from providers.firsttrust import etf_firsttrust
 from providers.globalx import etf_globalx
+from providers.goldmansachs import etf_goldmansachs_gbr, etf_goldmansachs_usa
 from providers.invesco import etf_invesco_irl, etf_invesco_usa
 from providers.ishares import etf_ishares_gbr, etf_ishares_usa
 from providers.jpmorgan import etf_jpmorgan_irl, etf_jpmorgan_usa
@@ -27,7 +28,7 @@ driver = webdriver.Chrome()
 driver.set_window_size(1920, 1080)
 
 # Scraping
-for etf in etf_cschwab(driver):
+for etf in etf_charlesschwab(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 
@@ -40,6 +41,13 @@ for etf in etf_firsttrust(driver):
 driver.delete_all_cookies()
 
 for etf in etf_globalx(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+
+for etf in etf_goldmansachs_gbr(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+for etf in etf_goldmansachs_usa(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 
