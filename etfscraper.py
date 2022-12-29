@@ -10,6 +10,7 @@ from selenium import webdriver
 
 from providers.charlesschwab import etf_charlesschwab
 from providers.dimensional import etf_dimensional
+from providers.fidelity import etf_fidelity
 from providers.firsttrust import etf_firsttrust
 from providers.globalx import etf_globalx
 from providers.goldmansachs import etf_goldmansachs_gbr, etf_goldmansachs_usa
@@ -33,6 +34,10 @@ for etf in etf_charlesschwab(driver):
 driver.delete_all_cookies()
 
 for etf in etf_dimensional(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+
+for etf in etf_fidelity(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 
