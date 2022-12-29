@@ -28,7 +28,7 @@ def etf_fidelity(driver):
         except TimeoutException:
             multi_try -= 1
 
-    # For each element.
+    # For each element in the first type of table.
     for etf_row in driver.find_elements(By.XPATH, "//strong[@class='last-child']"):
         etf_data = []
 
@@ -39,7 +39,7 @@ def etf_fidelity(driver):
 
             etf_list.append(etf_data)
 
-    # For each row in the table.
+    # For each row in the second type of table.
     for etf_table in driver.find_elements(By.CLASS_NAME, "table-simple"):
         for etf_row in etf_table.find_elements(By.TAG_NAME, "td"):
             etf_data = []

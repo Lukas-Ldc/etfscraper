@@ -9,6 +9,7 @@ from datetime import datetime
 from selenium import webdriver
 
 from providers.charlesschwab import etf_charlesschwab
+from providers.defiance import etf_defiance
 from providers.dimensional import etf_dimensional
 from providers.fidelity import etf_fidelity
 from providers.firsttrust import etf_firsttrust
@@ -31,6 +32,10 @@ driver.set_window_size(1920, 1080)
 
 # Scraping
 for etf in etf_charlesschwab(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+
+for etf in etf_defiance(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 

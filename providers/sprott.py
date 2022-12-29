@@ -22,10 +22,10 @@ def etf_sprott(driver):
     WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll")))
     driver.find_element(By.ID, "CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll").click()
 
-    # Waiting for the presence of a line in the table.
+    # Waiting for the presence of the menu.
     WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.ID, "mainNav")))
 
-    # For each row in the table.
+    # For each row in the menu.
     for etf_row in driver.find_element(By.ID, "mainNav").find_element(By.ID, "1").find_elements(By.TAG_NAME, "li"):
         etf_data = []
 
