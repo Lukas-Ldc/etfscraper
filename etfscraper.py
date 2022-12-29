@@ -18,6 +18,7 @@ from providers.invesco import etf_invesco_irl, etf_invesco_usa
 from providers.ishares import etf_ishares_gbr, etf_ishares_usa
 from providers.jpmorgan import etf_jpmorgan_irl, etf_jpmorgan_usa
 from providers.proshares import etf_proshares
+from providers.sprott import etf_sprott
 from providers.vaneck import etf_vaneck_irl, etf_vaneck_usa
 from providers.vanguard import etf_vanguard_irl, etf_vanguard_usa
 from providers.wisdomtree import etf_wisdomtree
@@ -78,6 +79,10 @@ for etf in etf_jpmorgan_usa(driver):
 driver.delete_all_cookies()
 
 for etf in etf_proshares(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+
+for etf in etf_sprott(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 
