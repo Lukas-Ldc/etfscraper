@@ -15,6 +15,7 @@ This script saves you time when searching for Exchange Traded Funds. No need to 
 - <a href="https://www.blackrock.com/corporate/global-directory#ishares" target="_blank">iShares</a> (GBR, USA)
 - <a href="https://am.jpmorgan.com/" target="_blank">J.P. Morgan</a> (IRL, USA)
 - <a href="https://www.legalandgeneral.com/worldwide/" target="_blank">LGIM</a> (IRL)
+- <a href="https://www.paceretfs.com/" target="_blank">Pacer</a> (USA)
 - <a href="https://www.proshares.com/" target="_blank">ProShares</a> (USA)
 - <a href="https://sprott.com/" target="_blank">Sprott</a> (USA)
 - <a href="https://www.vaneck.com/" target="_blank">VanEck</a> (IRL, USA)
