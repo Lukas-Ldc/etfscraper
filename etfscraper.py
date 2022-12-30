@@ -17,6 +17,7 @@ from providers.fidelity import etf_fidelity
 from providers.firsttrust import etf_firsttrust
 from providers.globalx import etf_globalx
 from providers.goldmansachs import etf_goldmansachs_gbr, etf_goldmansachs_usa
+from providers.innovator import etf_innovator
 from providers.invesco import etf_invesco_irl, etf_invesco_usa
 from providers.ishares import etf_ishares_gbr, etf_ishares_usa
 from providers.jpmorgan import etf_jpmorgan_irl, etf_jpmorgan_usa
@@ -71,6 +72,10 @@ for etf in etf_goldmansachs_gbr(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 for etf in etf_goldmansachs_usa(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+
+for etf in etf_innovator(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 
