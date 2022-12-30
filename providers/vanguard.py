@@ -37,18 +37,11 @@ def etf_vanguard_irl(driver):
     # Waiting for the presence of the table.
     WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "product-header")))
 
-    # Switching to the apropriate table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "mat-tab-label-0-4")))
-    driver.find_element(By.ID, "mat-tab-label-0-4").click()
-
-    # Waiting for the presence of the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "product-header")))
-
     # For each row in the table.
     for etf_row in driver.find_element(By.CLASS_NAME, "product-table").find_elements(By.XPATH, "//tr[@class='ng-star-inserted']"):
         etf_data = []
 
-        etf_data.append(etf_row.find_element(By.CSS_SELECTOR, '[headers="header-symbol-DBTK"]').find_element(By.TAG_NAME, "span").text)  # Ticker
+        etf_data.append(str(etf_row.find_element(By.CSS_SELECTOR, '[headers="header-symbol-BLMB"]').find_element(By.TAG_NAME, "span").text).split(" ")[0])  # Ticker
         etf_data.append(str(etf_row.find_element(By.TAG_NAME, "a").text).split("\n")[0])  # Name
         etf_data.append(etf_row.find_element(By.TAG_NAME, "a").get_attribute('href'))  # URL
 

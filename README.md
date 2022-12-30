@@ -2,6 +2,7 @@
 This script saves you time when searching for Exchange Traded Funds. No need to spend hours browsing providers' websites or wondering if aggregators' lists are up to date. Below you will find the list of available providers and in brackets the country of the website from which the data originated.
 
 ## Providers available
+- <a href="https://www.amundietf.com/?skip=true" target="_blank">Amundi</a> (FRA)
 - <a href="https://www.schwab.com/" target="_blank">Charles Schwab</a> (USA)
 - <a href="https://www.defianceetfs.com/" target="_blank">Defiance</a> (USA)
 - <a href="https://www.dimensional.com/" target="_blank">Dimensional</a> (USA)
