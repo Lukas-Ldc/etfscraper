@@ -18,6 +18,7 @@ from providers.goldmansachs import etf_goldmansachs_gbr, etf_goldmansachs_usa
 from providers.invesco import etf_invesco_irl, etf_invesco_usa
 from providers.ishares import etf_ishares_gbr, etf_ishares_usa
 from providers.jpmorgan import etf_jpmorgan_irl, etf_jpmorgan_usa
+from providers.lgim import etf_lgim
 from providers.proshares import etf_proshares
 from providers.sprott import etf_sprott
 from providers.vaneck import etf_vaneck_irl, etf_vaneck_usa
@@ -80,6 +81,10 @@ for etf in etf_jpmorgan_irl(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 for etf in etf_jpmorgan_usa(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+
+for etf in etf_lgim(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 

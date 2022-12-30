@@ -38,9 +38,6 @@ def etf_jpmorgan_irl(driver):
     # Waiting for the presence of the table.
     WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "ReactVirtualized__Table__Grid")))
 
-    # Getting row height.
-    row_height = driver.find_element(By.CLASS_NAME, "ReactVirtualized__Table__Grid").find_elements(By.CLASS_NAME, "ReactVirtualized__Table__row")[0].size['height']
-
     etf_row = []
     found = 10
     while found > 0:
@@ -52,6 +49,9 @@ def etf_jpmorgan_irl(driver):
             if row not in etf_row:
                 etf_data = []
 
+                driver.execute_script("arguments[0].scrollIntoView({behavior: 'instant', block: 'center', inline: 'center'});", row)
+                sleep(0.3)
+
                 etf_data.append(row.find_element(By.CLASS_NAME, "FXT__RowCell__FundName__Header_Item").text)  # Ticker
                 etf_data.append(row.find_elements(By.CLASS_NAME, "Link")[0].text)  # Name
                 etf_data.append(row.find_elements(By.CLASS_NAME, "Link")[0].get_attribute('href'))  # URL
@@ -59,9 +59,6 @@ def etf_jpmorgan_irl(driver):
                 etf_row.append(row)
                 etf_list.append(etf_data)
                 found += 1
-
-                sleep(0.3)
-                driver.execute_script(f"window.scrollBy(0, {row_height*0.8});")
 
             else:
                 found -= 0.5
@@ -88,9 +85,6 @@ def etf_jpmorgan_usa(driver):
     except NoSuchElementException:
         pass
 
-    # Getting row height.
-    row_height = driver.find_element(By.CLASS_NAME, "ReactVirtualized__Table__Grid").find_elements(By.CLASS_NAME, "ReactVirtualized__Table__row")[0].size['height']
-
     etf_row = []
     found = 10
     while found > 0:
@@ -102,6 +96,9 @@ def etf_jpmorgan_usa(driver):
             if row not in etf_row:
                 etf_data = []
 
+                driver.execute_script("arguments[0].scrollIntoView({behavior: 'instant', block: 'center', inline: 'center'});", row)
+                sleep(0.3)
+
                 etf_data.append(row.find_element(By.CLASS_NAME, "FXT__RowCell__FundName__Header_Item").text)  # Ticker
                 etf_data.append(row.find_elements(By.CLASS_NAME, "Link")[0].text)  # Name
                 etf_data.append(row.find_elements(By.CLASS_NAME, "Link")[0].get_attribute('href'))  # URL
@@ -109,9 +106,6 @@ def etf_jpmorgan_usa(driver):
                 etf_row.append(row)
                 etf_list.append(etf_data)
                 found += 1
-
-                sleep(0.3)
-                driver.execute_script(f"window.scrollBy(0, {row_height*0.8});")
 
             else:
                 found -= 0.5
