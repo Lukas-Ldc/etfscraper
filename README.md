@@ -7,6 +7,7 @@ This script saves you time when searching for Exchange Traded Funds. No need to 
 - <a href="https://www.schwab.com/" target="_blank">Charles Schwab</a> (USA)
 - <a href="https://www.defianceetfs.com/" target="_blank">Defiance</a> (USA)
 - <a href="https://www.dimensional.com/" target="_blank">Dimensional</a> (USA)
+- <a href="https://www.direxion.com/" target="_blank">Direxion</a> (USA)
 - <a href="https://etf.dws.com/en-gb/audience-selection/" target="_blank">DWS</a> (GBR)
 - <a href="https://www.fidelity.com/" target="_blank">Fidelity</a> (USA)
 - <a href="https://www.ftportfolios.com/" target="_blank">First Trust</a> (USA)

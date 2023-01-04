@@ -13,6 +13,7 @@ from providers.ark import etf_ark
 from providers.charlesschwab import etf_charlesschwab
 from providers.defiance import etf_defiance
 from providers.dimensional import etf_dimensional
+from providers.direxion import etf_direxion
 from providers.dws import etf_dws
 from providers.fidelity import etf_fidelity
 from providers.firsttrust import etf_firsttrust
@@ -56,6 +57,10 @@ for etf in etf_defiance(driver):
 driver.delete_all_cookies()
 
 for etf in etf_dimensional(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+
+for etf in etf_direxion(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 
