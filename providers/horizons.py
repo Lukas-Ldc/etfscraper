@@ -20,7 +20,7 @@ def etf_horizons(driver):
     etf_list = []
     driver.get("https://horizonsetfs.com/products/")
 
-    # Waiting for the presence of a line in the table.
+    # Waiting for the presence the table.
     WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.ID, "product-listing-table-all")))
 
     driver.execute_script("arguments[0].scrollIntoView({behavior: 'instant', block: 'center', inline: 'center'});", driver.find_element(By.CLASS_NAME, "disclaimer-text-column"))

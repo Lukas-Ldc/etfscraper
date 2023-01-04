@@ -9,6 +9,7 @@ from datetime import datetime
 from selenium import webdriver
 
 from providers.amundi import etf_amundi
+from providers.ark import etf_ark
 from providers.charlesschwab import etf_charlesschwab
 from providers.defiance import etf_defiance
 from providers.dimensional import etf_dimensional
@@ -39,6 +40,10 @@ driver.set_window_size(1920, 1080)
 
 # Scraping
 for etf in etf_amundi(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+
+for etf in etf_ark(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 

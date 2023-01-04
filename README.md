@@ -3,6 +3,7 @@ This script saves you time when searching for Exchange Traded Funds. No need to 
 
 ## Providers available
 - <a href="https://www.amundietf.com/?skip=true" target="_blank">Amundi</a> (FRA)
+- <a href="https://ark-funds.com/" target="_blank">ARK</a> (USA)
 - <a href="https://www.schwab.com/" target="_blank">Charles Schwab</a> (USA)
 - <a href="https://www.defianceetfs.com/" target="_blank">Defiance</a> (USA)
 - <a href="https://www.dimensional.com/" target="_blank">Dimensional</a> (USA)
