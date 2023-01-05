@@ -20,6 +20,7 @@ from providers.expat import etf_expat
 from providers.fidelity import etf_fidelity
 from providers.finex import etf_finex
 from providers.firsttrust import etf_firsttrust
+from providers.franklintempleton import etf_franklintempleton_irl, etf_franklintempleton_usa
 from providers.globalx import etf_globalx
 from providers.goldmansachs import etf_goldmansachs_gbr, etf_goldmansachs_usa
 from providers.horizons import etf_horizons
@@ -88,6 +89,13 @@ for etf in etf_finex(driver):
 driver.delete_all_cookies()
 
 for etf in etf_firsttrust(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+
+for etf in etf_franklintempleton_irl(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+for etf in etf_franklintempleton_usa(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 
