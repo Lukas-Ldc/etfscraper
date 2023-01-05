@@ -15,6 +15,7 @@ from providers.defiance import etf_defiance
 from providers.dimensional import etf_dimensional
 from providers.direxion import etf_direxion
 from providers.dws import etf_dws
+from providers.etfmg import etf_etfmg
 from providers.expat import etf_expat
 from providers.fidelity import etf_fidelity
 from providers.finex import etf_finex
@@ -67,6 +68,10 @@ for etf in etf_direxion(driver):
 driver.delete_all_cookies()
 
 for etf in etf_dws(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+
+for etf in etf_etfmg(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 
