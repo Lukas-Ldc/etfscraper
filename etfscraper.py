@@ -16,6 +16,7 @@ from providers.dimensional import etf_dimensional
 from providers.direxion import etf_direxion
 from providers.dws import etf_dws
 from providers.fidelity import etf_fidelity
+from providers.finex import etf_finex
 from providers.firsttrust import etf_firsttrust
 from providers.globalx import etf_globalx
 from providers.goldmansachs import etf_goldmansachs_gbr, etf_goldmansachs_usa
@@ -69,6 +70,10 @@ for etf in etf_dws(driver):
 driver.delete_all_cookies()
 
 for etf in etf_fidelity(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+
+for etf in etf_finex(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 
