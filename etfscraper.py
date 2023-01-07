@@ -8,6 +8,7 @@ from csv import writer, QUOTE_ALL
 from datetime import datetime
 from selenium import webdriver
 
+from providers.advisorshares import etf_advisorshares
 from providers.amundi import etf_amundi
 from providers.ark import etf_ark
 from providers.charlesschwab import etf_charlesschwab
@@ -44,6 +45,10 @@ driver = webdriver.Chrome()
 driver.set_window_size(1920, 1080)
 
 # Scraping
+for etf in etf_advisorshares(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+
 for etf in etf_amundi(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
