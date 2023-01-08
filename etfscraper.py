@@ -35,6 +35,7 @@ from providers.pacer import etf_pacer
 from providers.proshares import etf_proshares
 from providers.sprott import etf_sprott
 from providers.ssga import etf_ssga_irl, etf_ssga_usa
+from providers.ubs import etf_ubs
 from providers.vaneck import etf_vaneck_irl, etf_vaneck_usa
 from providers.vanguard import etf_vanguard_irl, etf_vanguard_usa
 from providers.wisdomtree import etf_wisdomtree
@@ -169,6 +170,10 @@ for etf in etf_ssga_irl(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 for etf in etf_ssga_usa(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+
+for etf in etf_ubs(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 
