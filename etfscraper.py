@@ -24,6 +24,7 @@ from providers.firsttrust import etf_firsttrust
 from providers.franklintempleton import etf_franklintempleton_irl, etf_franklintempleton_usa
 from providers.globalx import etf_globalx
 from providers.goldmansachs import etf_goldmansachs_gbr, etf_goldmansachs_usa
+from providers.hanetf import etf_hanetf
 from providers.horizons import etf_horizons
 from providers.indexiq import etf_indexiq
 from providers.innovator import etf_innovator
@@ -114,6 +115,10 @@ for etf in etf_goldmansachs_gbr(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 for etf in etf_goldmansachs_usa(driver):
+    etfs_list.append(etf)
+driver.delete_all_cookies()
+
+for etf in etf_hanetf(driver):
     etfs_list.append(etf)
 driver.delete_all_cookies()
 

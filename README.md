@@ -18,6 +18,7 @@ This script saves you time when searching for Exchange Traded Funds. No need to 
 - <a href="https://www.franklintempleton.com/" target="_blank">Franklin Templeton</a> (IRL, USA)
 - <a href="https://www.globalxetfs.com/" target="_blank">Global X</a> (USA)
 - <a href="https://www.gsam.com/" target="_blank">Goldman Sachs</a> (IRL, USA)
+- <a href="https://www.hanetf.com/" target="_blank">HANetf</a> (IRL)
 - <a href="https://horizonsetfs.com/" target="_blank">Horizons</a> (CAN)
 - <a href="https://www.newyorklifeinvestments.com/" target="_blank">IndexIQ</a> (USA)
 - <a href="https://www.innovatoretfs.com/" target="_blank">Innovator</a> (USA)
