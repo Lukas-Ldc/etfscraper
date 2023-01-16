@@ -1,6 +1,21 @@
 # ETF Scraper
 This script saves you time when searching for Exchange Traded Funds. No need to spend hours browsing providers' websites or wondering if aggregators' lists are up to date. Below you will find the list of available providers and in brackets the country of the website from which the data originated.
 
+## Installation and use
+You need to have <a href="https://www.python.org/" target="_blank">Python</a> and <a href="https://pypi.org/" target="_blank">PyPI</a> installed. You might want to use a <a href="https://docs.python.org/3/library/venv.html" target="_blank">virtual environment</a>.
+
+Install the required packages:
+```
+pip install -r requirements.txt
+```
+
+Run the script:
+```
+python3 etfscraper.py
+```
+
+While the script is running, don't interact with the browser: window size and placement on the web page are important.
+
 ## Providers available
 - <a href="https://advisorshares.com/" target="_blank">AdvisorShares</a> (USA)
 - <a href="https://www.amundietf.com/?skip=true" target="_blank">Amundi</a> (FRA)
