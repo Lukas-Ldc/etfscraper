@@ -48,161 +48,62 @@ etfs_list = []
 driver = webdriver.Chrome()
 driver.set_window_size(1920, 1080)
 
+
+def concatenaclear(etflist):
+    """This function takes a list of ETFs and appends it to the global ETF list and then clear the driver's cookies.
+
+    Arguments:
+        etflist (list): The ETF list to append to the global list.
+    """
+    for etf in etflist:
+        etfs_list.append(etf)
+    driver.delete_all_cookies()
+
+
 # Scraping
-for etf in etf_advisorshares(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
+concatenaclear(etf_advisorshares(driver))
+concatenaclear(etf_amundi(driver))
+concatenaclear(etf_ark(driver))
+concatenaclear(etf_charlesschwab(driver))
+concatenaclear(etf_defiance(driver))
+concatenaclear(etf_dimensional(driver))
+concatenaclear(etf_direxion(driver))
+concatenaclear(etf_dws(driver))
+concatenaclear(etf_etc(driver))
+concatenaclear(etf_etfmg(driver))
+concatenaclear(etf_expat(driver))
+concatenaclear(etf_fidelity(driver))
+concatenaclear(etf_finex(driver))
+concatenaclear(etf_firsttrust(driver))
+concatenaclear(etf_franklintempleton_irl(driver))
+concatenaclear(etf_franklintempleton_usa(driver))
+concatenaclear(etf_globalx(driver))
+concatenaclear(etf_goldmansachs_gbr(driver))
+concatenaclear(etf_goldmansachs_usa(driver))
+concatenaclear(etf_hanetf(driver))
+concatenaclear(etf_horizons(driver))
+concatenaclear(etf_indexiq(driver))
+concatenaclear(etf_innovator(driver))
+concatenaclear(etf_invesco_irl(driver))
+concatenaclear(etf_invesco_usa(driver))
+concatenaclear(etf_ishares_gbr(driver))
+concatenaclear(etf_ishares_usa(driver))
+concatenaclear(etf_jpmorgan_irl(driver))
+concatenaclear(etf_jpmorgan_usa(driver))
+concatenaclear(etf_lgim(driver))
+concatenaclear(etf_pacer(driver))
+concatenaclear(etf_proshares(driver))
+concatenaclear(etf_sprott(driver))
+concatenaclear(etf_ssga_irl(driver))
+concatenaclear(etf_ssga_usa(driver))
+concatenaclear(etf_ubs(driver))
+concatenaclear(etf_vaneck_irl(driver))
+concatenaclear(etf_vaneck_usa(driver))
+concatenaclear(etf_vanguard_irl(driver))
+concatenaclear(etf_vanguard_usa(driver))
+concatenaclear(etf_wisdomtree(driver))
 
-for etf in etf_amundi(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_ark(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_charlesschwab(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_defiance(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_dimensional(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_direxion(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_dws(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_etc(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_etfmg(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_expat(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_fidelity(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_finex(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_firsttrust(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_franklintempleton_irl(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-for etf in etf_franklintempleton_usa(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_globalx(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_goldmansachs_gbr(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-for etf in etf_goldmansachs_usa(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_hanetf(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_horizons(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_indexiq(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_innovator(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_invesco_irl(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-for etf in etf_invesco_usa(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_ishares_gbr(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-for etf in etf_ishares_usa(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_jpmorgan_irl(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-for etf in etf_jpmorgan_usa(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_lgim(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_pacer(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_proshares(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_sprott(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_ssga_irl(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-for etf in etf_ssga_usa(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_ubs(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_vaneck_irl(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-for etf in etf_vaneck_usa(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_vanguard_irl(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-for etf in etf_vanguard_usa(driver):
-    etfs_list.append(etf)
-driver.delete_all_cookies()
-
-for etf in etf_wisdomtree(driver):
-    etfs_list.append(etf)
+# Closing driver
 driver.quit()
 
 # File saving
