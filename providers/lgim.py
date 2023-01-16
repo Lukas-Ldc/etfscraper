@@ -20,20 +20,20 @@ def etf_lgim(driver):
     driver.get("https://fundcentres.lgim.com/en/ie/institutional/fund-centre/ETF/")
 
     # Interaction with cookies.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "onetrust-pc-btn-handler")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "onetrust-pc-btn-handler")))
     driver.find_element(By.ID, "onetrust-pc-btn-handler").click()
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "save-preference-btn-handler")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "save-preference-btn-handler")))
     driver.find_element(By.CLASS_NAME, "save-preference-btn-handler").click()
 
     # Interaction with legal notice.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "popup-checkbox")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "popup-checkbox")))
     driver.find_element(By.CLASS_NAME, "popup-checkbox").find_element(By.TAG_NAME, "input").click()
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "btn-accept")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "btn-accept")))
     driver.find_element(By.CLASS_NAME, "btn-accept").click()
 
     # Waiting for the presence of a line in the table.
     driver.get("https://fundcentres.lgim.com/en/ie/institutional/fund-centre/ETF/")
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "fund-row")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "fund-row")))
     driver.execute_script("arguments[0].scrollIntoView({behavior: 'instant', block: 'center', inline: 'center'});", driver.find_element(By.CLASS_NAME, "fund-row"))
     sleep(1)
 

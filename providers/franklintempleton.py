@@ -22,11 +22,11 @@ def etf_franklintempleton_irl(driver):
     driver.get("https://www.franklintempleton.ie/our-funds/price-and-performance-etfs#fund-identifiers")
 
     # Interaction with cookies.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "onetrust-accept-btn-handler")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "onetrust-accept-btn-handler")))
     driver.find_element(By.ID, "onetrust-accept-btn-handler").click()
 
     # Waiting for the presence of a line in the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.visibility_of_element_located((By.CLASS_NAME, "ag-cell-value")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.visibility_of_element_located((By.CLASS_NAME, "ag-cell-value")))
 
     # For each page.
     breakk = False
@@ -66,11 +66,11 @@ def etf_franklintempleton_usa(driver):
     driver.get("https://www.franklintempleton.com/investments/options/exchange-traded-funds")
 
     # Interaction with cookies.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "onetrust-reject-all-handler")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "onetrust-reject-all-handler")))
     driver.find_element(By.ID, "onetrust-reject-all-handler").click()
 
     # Waiting for the presence of a line in the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.visibility_of_element_located((By.CLASS_NAME, "ag-cell-value")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.visibility_of_element_located((By.CLASS_NAME, "ag-cell-value")))
 
     # For each page.
     breakk = False

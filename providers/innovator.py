@@ -21,7 +21,7 @@ def etf_innovator(driver):
     driver.get("https://www.innovatoretfs.com/define/etfs/#allproducts")
 
     # Waiting for the presence of a line in the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.XPATH, "//tbody[.//a]")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.XPATH, "//tbody[.//a]")))
 
     # Openning the menu.
     sleep(2)

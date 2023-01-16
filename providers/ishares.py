@@ -19,17 +19,17 @@ def etf_ishares_gbr(driver):
     driver.get("https://www.ishares.com/uk/individual/en/products/etf-investments")
 
     # Interaction with cookies.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "onetrust-reject-all-handler")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "onetrust-reject-all-handler")))
     driver.find_element(By.ID, "onetrust-reject-all-handler").click()
 
     # Interaction with type of investor.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-link-event="Accept t&c: individual"]')))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-link-event="Accept t&c: individual"]')))
     driver.find_element(By.CSS_SELECTOR, '[data-link-event="Accept t&c: individual"]').click()
 
     driver.get("https://www.ishares.com/uk/individual/en/products/etf-investments#/?productView=etf&sortColumn=localExchangeTicker&sortDirection=asc&dataView=keyFacts&showAll=true")
 
     # Waiting for the presence of a line in the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "fund-cell-container")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "fund-cell-container")))
 
     # For each row in the table.
     for etf_row in driver.find_element(By.CSS_SELECTOR, '[role="grid"]').find_element(By.TAG_NAME, "tbody").find_elements(By.TAG_NAME, "tr"):
@@ -56,11 +56,11 @@ def etf_ishares_usa(driver):
     driver.get("https://www.ishares.com/us/products/etf-investments#/?productView=etf&sortColumn=localExchangeTicker&sortDirection=asc&dataView=keyFacts&showAll=true")
 
     # Interaction with cookies.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "onetrust-reject-all-handler")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "onetrust-reject-all-handler")))
     driver.find_element(By.ID, "onetrust-reject-all-handler").click()
 
     # Waiting for the presence of a line in the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "fund-cell-container")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "fund-cell-container")))
 
     # For each row in the table.
     for etf_row in driver.find_element(By.CSS_SELECTOR, '[role="grid"]').find_element(By.TAG_NAME, "tbody").find_elements(By.TAG_NAME, "tr"):

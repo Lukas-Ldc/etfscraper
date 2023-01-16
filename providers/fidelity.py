@@ -23,7 +23,7 @@ def etf_fidelity(driver):
         try:
             driver.get("https://www.fidelity.com/etfs/different-types-of-etfs")
             # Waiting for the presence of a line in the table.
-            WebDriverWait(driver, timeout=8).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "tabs--content-active")))
+            WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "tabs--content-active")))
             multi_try = 0
         except TimeoutException:
             multi_try -= 1

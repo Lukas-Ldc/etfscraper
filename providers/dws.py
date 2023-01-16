@@ -19,17 +19,17 @@ def etf_dws(driver):
     driver.get("https://etf.dws.com/en-gb/product-finder/?PageSize=10000")
 
     # Interaction with cookies.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "consent_prompt_reject")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "consent_prompt_reject")))
     driver.find_element(By.ID, "consent_prompt_reject").click()
 
     # Interaction with type of investor.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-title="Professional Clients"]')))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-title="Professional Clients"]')))
     driver.find_element(By.CSS_SELECTOR, '[data-title="Professional Clients"]').click()
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "en-gb")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "en-gb")))
     driver.find_element(By.ID, "en-gb").click()
 
     # Waiting for the presence of the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "partial-update-content-container")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "partial-update-content-container")))
 
     # For each row in the table.
     for etf_row in driver.find_element(By.CLASS_NAME, "partial-update-content-container").find_elements(By.TAG_NAME, "tr"):

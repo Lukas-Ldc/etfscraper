@@ -19,16 +19,16 @@ def etf_ssga_irl(driver):
     driver.get("https://www.ssga.com/ie/en_gb/institutional/etfs/fund-finder")
 
     # Interaction with cookies.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "js-ssmp-clrCookieSettingsLabel")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "js-ssmp-clrCookieSettingsLabel")))
     driver.find_element(By.ID, "js-ssmp-clrCookieSettingsLabel").click()
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "save-preference-btn-handler")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "save-preference-btn-handler")))
     driver.find_element(By.CLASS_NAME, "save-preference-btn-handler").click()
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "js-ssmp-clrButtonLabel")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "js-ssmp-clrButtonLabel")))
     driver.find_element(By.ID, "js-ssmp-clrButtonLabel").click()
 
     # Waiting for the presence of the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.invisibility_of_element_located((By.CLASS_NAME, "ssmp-mobile-header")))
-    WebDriverWait(driver, timeout=10).until(expected_conditions.invisibility_of_element_located((By.CLASS_NAME, "loader-container")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.invisibility_of_element_located((By.CLASS_NAME, "ssmp-mobile-header")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.invisibility_of_element_located((By.CLASS_NAME, "loader-container")))
 
     # For each row in the table.
     for etf_row in driver.find_element(By.CLASS_NAME, "tb-body").find_elements(By.TAG_NAME, "tr")[:-1]:
@@ -56,12 +56,12 @@ def etf_ssga_usa(driver):
     driver.get("https://www.ssga.com/us/en/individual/etfs/fund-finder")
 
     # Interaction with cookies.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "js-ssmp-clrButtonLabel")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "js-ssmp-clrButtonLabel")))
     driver.find_element(By.ID, "js-ssmp-clrButtonLabel").click()
 
     # Waiting for the presence of the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.invisibility_of_element_located((By.CLASS_NAME, "ssmp-mobile-header")))
-    WebDriverWait(driver, timeout=10).until(expected_conditions.invisibility_of_element_located((By.CLASS_NAME, "loader-container")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.invisibility_of_element_located((By.CLASS_NAME, "ssmp-mobile-header")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.invisibility_of_element_located((By.CLASS_NAME, "loader-container")))
 
     # For each row in the table.
     for etf_row in driver.find_element(By.CLASS_NAME, "tb-body").find_elements(By.TAG_NAME, "tr")[:-1]:

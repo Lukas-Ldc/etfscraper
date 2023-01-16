@@ -19,7 +19,7 @@ def etf_defiance(driver):
     driver.get("https://www.defianceetfs.com/the-thematic-etf-boom/")
 
     # Waiting for the presence of the menu.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.ID, "list-etf")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.ID, "list-etf")))
 
     # For each row in the menu.
     for etf_row in driver.find_element(By.ID, "list-etf").find_elements(By.TAG_NAME, "a"):

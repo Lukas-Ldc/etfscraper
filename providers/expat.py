@@ -19,7 +19,7 @@ def etf_expat(driver):
     driver.get("https://expat.bg/en/passive-funds")
 
     # Waiting for the presence of a line in the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "alternating-funds")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "alternating-funds")))
 
     # For each row in the table.
     for etf_row in driver.find_elements(By.CLASS_NAME, "alternating-funds"):

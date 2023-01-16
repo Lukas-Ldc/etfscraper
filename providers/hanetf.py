@@ -19,15 +19,15 @@ def etf_hanetf(driver):
     driver.get("https://www.hanetf.com/product-list")
 
     # Interaction with type of investor.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "ctl00_rptCountries_ctl03_lnkCountry")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "ctl00_rptCountries_ctl03_lnkCountry")))
     driver.find_element(By.ID, "ctl00_rptCountries_ctl03_lnkCountry").click()
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-type="individual"]')))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-type="individual"]')))
     driver.find_element(By.CSS_SELECTOR, '[data-type="individual"]').click()
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "ctl00_btnInvestorType")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "ctl00_btnInvestorType")))
     driver.find_element(By.ID, "ctl00_btnInvestorType").click()
 
     # Waiting for the presence of the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.TAG_NAME, "tbody")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.TAG_NAME, "tbody")))
 
     # For each row in the table.
     for etf_row in driver.find_element(By.TAG_NAME, "tbody").find_elements(By.TAG_NAME, "tr"):

@@ -19,18 +19,18 @@ def etf_charlesschwab(driver):
     driver.get("https://www.schwab.com/research/etfs/tools/schwab-etfs")
 
     # Waiting for the presence of the iframe and switching to it.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "schwab-responsive-iframe--no-wrapper")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "schwab-responsive-iframe--no-wrapper")))
     driver.switch_to.frame(driver.find_element(By.CLASS_NAME, "schwab-responsive-iframe--no-wrapper").find_element(By.TAG_NAME, "iframe"))
 
     # Waiting for the presence of the button.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.ID, "ctrlSchwabETFsTypes11")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.ID, "ctrlSchwabETFsTypes11")))
 
     # For all ETF tables.
     for etf_table in ["ctrlSchwabETFsTypes11", "ctrlSchwabETFsTypes31", "ctrlSchwabETFsTypes51", "ctrlSchwabETFsTypes71"]:
         driver.find_element(By.ID, etf_table).click()
 
         # Waiting for the presence of the table.
-        WebDriverWait(driver, timeout=10).until(expected_conditions.invisibility_of_element_located((By.CLASS_NAME, "mvloader")))
+        WebDriverWait(driver, timeout=20).until(expected_conditions.invisibility_of_element_located((By.CLASS_NAME, "mvloader")))
 
         # For each row in the table.
         for etf_row in driver.find_element(By.CLASS_NAME, "mvActiveContainer").find_elements(By.CLASS_NAME, "SchwabETFsSymbolModule"):

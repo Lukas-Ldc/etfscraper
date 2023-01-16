@@ -19,7 +19,7 @@ def etf_globalx(driver):
     driver.get("https://www.globalxetfs.com/explore/")
 
     # Waiting for the presence of a line in the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, '[class="even"]')))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, '[class="even"]')))
 
     # For each row in the table.
     for etf_row in driver.find_element(By.CSS_SELECTOR, '[aria-live="polite"]').find_elements(By.TAG_NAME, "tr"):

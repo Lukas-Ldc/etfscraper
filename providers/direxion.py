@@ -19,7 +19,7 @@ def etf_direxion(driver):
     driver.get("https://www.direxion.com/etfs")
 
     # Waiting for the presence of the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "dx-table")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "dx-table")))
 
     # For each row in the table.
     for etf_row in driver.find_element(By.CLASS_NAME, "dx-table").find_elements(By.CLASS_NAME, "dx-table__tbody-item"):

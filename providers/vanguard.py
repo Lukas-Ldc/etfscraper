@@ -19,23 +19,23 @@ def etf_vanguard_irl(driver):
     driver.get("https://www.ie.vanguard/products?fund-type=etf")
 
     # Interaction with cookies.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "onetrust-reject-all-handler")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "onetrust-reject-all-handler")))
     driver.find_element(By.ID, "onetrust-reject-all-handler").click()
 
     # Interaction with legal notice.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "mat-select-0")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "mat-select-0")))
     driver.find_element(By.ID, "mat-select-0").click()
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "mat-option-0")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "mat-option-0")))
     driver.find_element(By.ID, "mat-option-0").click()
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "investorType")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "investorType")))
     driver.find_element(By.ID, "investorType").click()
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "mat-option-22")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "mat-option-22")))
     driver.find_element(By.ID, "mat-option-22").click()
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.XPATH, "//europe-core-consent-box[.//button]")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.XPATH, "//europe-core-consent-box[.//button]")))
     driver.find_element(By.TAG_NAME, "europe-core-consent-box").find_element(By.CLASS_NAME, "eds-cta-btn__primary-black").click()
 
     # Waiting for the presence of the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "product-header")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "product-header")))
 
     # For each row in the table.
     for etf_row in driver.find_element(By.CLASS_NAME, "product-table").find_elements(By.XPATH, "//tr[@class='ng-star-inserted']"):
@@ -62,7 +62,7 @@ def etf_vanguard_usa(driver):
     driver.get("https://institutional.vanguard.com/fund-list/?filters=etf%2C&sortBy=alphabetical")
 
     # Waiting for the presence of the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.ID, "tableData")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.ID, "tableData")))
 
     # For each row in the table.
     for etf_row in driver.find_element(By.ID, "tableData").find_elements(By.TAG_NAME, "tr"):

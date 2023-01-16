@@ -20,15 +20,15 @@ def etf_indexiq(driver):
     driver.get("https://www.newyorklifeinvestments.com/etf")
 
     # Interaction with cookies.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "modal-footer__cookies")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "modal-footer__cookies")))
     driver.find_element(By.CLASS_NAME, "modal-footer__cookies").click()
 
     # Interaction with type of investor.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, '[data-selector="individual"]')))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, '[data-selector="individual"]')))
     driver.find_element(By.CLASS_NAME, "cmp-role-selection__modal").find_element(By.CSS_SELECTOR, '[data-selector="individual"]').click()
 
     # Waiting for the presence of the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "datatable-scroll")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "datatable-scroll")))
 
     # Scrolling at the bottom of the page.
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")

@@ -20,14 +20,14 @@ def etf_vaneck_irl(driver):
     driver.get("https://www.vaneck.com/ie/en/fundlisting/overview/etfs/")
 
     # Interaction with legal notice.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "agree")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "agree")))
     driver.find_element(By.CLASS_NAME, "agree").click()
 
     # Waiting for the presence of the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.XPATH, "//td[@class='text-left']")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.XPATH, "//td[@class='text-left']")))
 
     # Cannot interact with cookies, making them disapear.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.ID, "usercentrics-root")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.ID, "usercentrics-root")))
     driver.execute_script("arguments[0].remove();", driver.find_element(By.ID, "usercentrics-root"))
     sleep(2)
 
@@ -56,16 +56,16 @@ def etf_vaneck_usa(driver):
     driver.get("https://www.vaneck.com/us/en/etf-mutual-fund-finder/etfs/")
 
     # Interaction with legal notice.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-ve-gtm="ahp-investor-type"]')))
-    WebDriverWait(driver, timeout=10).until(expected_conditions.invisibility_of_element_located((By.ID, "viewport-wide-spinner")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-ve-gtm="ahp-investor-type"]')))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.invisibility_of_element_located((By.ID, "viewport-wide-spinner")))
     driver.find_element(By.CSS_SELECTOR, '[data-ve-gtm="ahp-investor-type"]').click()
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-id="retail"]')))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-id="retail"]')))
     driver.find_element(By.CSS_SELECTOR, '[data-id="retail"]').click()
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-ve-gtm="ahp-disclaimer-agree"]')))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-ve-gtm="ahp-disclaimer-agree"]')))
     driver.find_element(By.CSS_SELECTOR, '[data-ve-gtm="ahp-disclaimer-agree"]').click()
 
     # Waiting for the presence of the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.XPATH, "//td[@class='text-left']")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.XPATH, "//td[@class='text-left']")))
 
     # For each row in the table.
     for etf_row in driver.find_element(By.XPATH, "//table[@id='overview']").find_element(By.TAG_NAME, "tbody").find_elements(By.TAG_NAME, "tr"):

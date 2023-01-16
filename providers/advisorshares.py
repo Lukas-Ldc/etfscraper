@@ -19,7 +19,7 @@ def etf_advisorshares(driver):
     driver.get("https://advisorshares.com/etfs/")
 
     # Waiting for the presence of all the tables.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_all_elements_located((By.TAG_NAME, "tbody")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_all_elements_located((By.TAG_NAME, "tbody")))
 
     # For each table.
     for etf_table in driver.find_elements(By.TAG_NAME, "tbody"):

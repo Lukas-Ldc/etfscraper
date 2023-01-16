@@ -19,7 +19,7 @@ def etf_firsttrust(driver):
     driver.get("https://www.ftportfolios.com/Retail/etf/etflist.aspx")
 
     # Waiting for the presence of the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "searchResults")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "searchResults")))
 
     # For each table.
     for etf_table in driver.find_elements(By.CLASS_NAME, "searchResults"):

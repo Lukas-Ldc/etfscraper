@@ -19,7 +19,7 @@ def etf_ark(driver):
     driver.get("https://ark-funds.com/our-etfs/")
 
     # Waiting for the presence the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.ID, "dtBasicExample")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.ID, "dtBasicExample")))
 
     # For each row in the table.
     for etf_row in driver.find_element(By.ID, "dtBasicExample").find_element(By.TAG_NAME, "tbody").find_elements(By.TAG_NAME, "tr"):

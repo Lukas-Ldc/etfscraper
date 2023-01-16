@@ -19,7 +19,7 @@ def etf_pacer(driver):
     driver.get("https://www.paceretfs.com/products")
 
     # Waiting for the presence of a line in the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.ID, "products-filter")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.ID, "products-filter")))
 
     # For each table.
     for etf_table in driver.find_elements(By.CLASS_NAME, "theme-container"):

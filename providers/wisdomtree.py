@@ -19,7 +19,7 @@ def etf_wisdomtree(driver):
     driver.get("https://www.wisdomtree.com/investments/etfs")
 
     # Waiting for the presence of a line in the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "nameLink")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "nameLink")))
 
     # For each row in the table.
     for etf_row in driver.find_element(By.TAG_NAME, "tbody").find_elements(By.TAG_NAME, "tr"):

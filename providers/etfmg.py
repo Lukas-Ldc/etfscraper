@@ -19,11 +19,11 @@ def etf_etfmg(driver):
     driver.get("https://etfmg.com/our-funds/")
 
     # Interaction with the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "fundsList")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "fundsList")))
     driver.find_element(By.ID, "fundsList").click()
 
     # Waiting for the presence of the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.ID, "funds")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.ID, "funds")))
 
     # For each row in the menu.
     for etf_row in driver.find_elements(By.ID, "funds")[0].find_element(By.TAG_NAME, "tbody").find_elements(By.TAG_NAME, "tr"):

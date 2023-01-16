@@ -21,19 +21,19 @@ def etf_amundi(driver):
     driver.get("https://www.amundietf.fr/fr/professionnels/produits-etf/recherche")
 
     # Interaction with type of investor.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-profile="INSTIT"]')))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-profile="INSTIT"]')))
     driver.find_element(By.CSS_SELECTOR, '[data-profile="INSTIT"]').click()
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "confirmDisclaimer")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "confirmDisclaimer")))
     driver.find_element(By.ID, "confirmDisclaimer").click()
 
     # Interaction with cookies.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "CookiesDisclaimerRibbonV1-Settings")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "CookiesDisclaimerRibbonV1-Settings")))
     driver.find_element(By.ID, "CookiesDisclaimerRibbonV1-Settings").click()
-    WebDriverWait(driver, timeout=10).until(expected_conditions.element_to_be_clickable((By.ID, "CookiesDisclaimerPopupV1-Save")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "CookiesDisclaimerPopupV1-Save")))
     driver.find_element(By.ID, "CookiesDisclaimerPopupV1-Save").click()
 
     # Waiting for the presence of a line in the table.
-    WebDriverWait(driver, timeout=10).until(expected_conditions.presence_of_element_located((By.TAG_NAME, "tbody")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.TAG_NAME, "tbody")))
 
     # For each page.
     breakk = False
