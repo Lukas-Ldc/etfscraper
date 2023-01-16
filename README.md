@@ -10,6 +10,7 @@ This script saves you time when searching for Exchange Traded Funds. No need to 
 - <a href="https://www.dimensional.com/" target="_blank">Dimensional</a> (USA)
 - <a href="https://www.direxion.com/" target="_blank">Direxion</a> (USA)
 - <a href="https://etf.dws.com/en-gb/audience-selection/" target="_blank">DWS</a> (GBR)
+- <a href="https://exchangetradedconcepts.com/" target="_blank">ETC</a> (USA)
 - <a href="https://etfmg.com/" target="_blank">ETFMG</a> (USA)
 - <a href="https://expat.bg/en/" target="_blank">Expat</a> (BGR)
 - <a href="https://www.fidelity.com/" target="_blank">Fidelity</a> (USA)
