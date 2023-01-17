@@ -18,6 +18,7 @@ While the script is running, don't interact with the browser: window size and pl
 
 ## Providers available
 - <a href="https://advisorshares.com/" target="_blank">AdvisorShares</a> (USA)
+- <a href="https://www.allianzim.com/" target="_blank">Allianz</a> (USA)
 - <a href="https://www.amundietf.com/?skip=true" target="_blank">Amundi</a> (FRA)
 - <a href="https://ark-funds.com/" target="_blank">ARK</a> (USA)
 - <a href="https://www.schwab.com/" target="_blank">Charles Schwab</a> (USA)

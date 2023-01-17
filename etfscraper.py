@@ -11,6 +11,7 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchWindowException
 
 from providers.advisorshares import etf_advisorshares
+from providers.allianz import etf_allianz
 from providers.amundi import etf_amundi
 from providers.ark import etf_ark
 from providers.charlesschwab import etf_charlesschwab
@@ -47,6 +48,7 @@ from providers.wisdomtree import etf_wisdomtree_irl, etf_wisdomtree_usa
 # Initialisations
 etf_functions = [
     etf_advisorshares,
+    etf_allianz,
     etf_amundi,
     etf_ark,
     etf_charlesschwab,
