@@ -25,7 +25,7 @@ def etf_lgim(driver):
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "save-preference-btn-handler")))
     driver.find_element(By.CLASS_NAME, "save-preference-btn-handler").click()
 
-    # Interaction with legal notice.
+    # Interaction with legal disclaimer.
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "popup-checkbox")))
     driver.find_element(By.CLASS_NAME, "popup-checkbox").find_element(By.TAG_NAME, "input").click()
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "btn-accept")))

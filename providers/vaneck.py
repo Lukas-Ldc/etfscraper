@@ -19,7 +19,7 @@ def etf_vaneck_irl(driver):
     etf_list = []
     driver.get("https://www.vaneck.com/ie/en/fundlisting/overview/etfs/")
 
-    # Interaction with legal notice.
+    # Interaction with legal disclaimer.
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "agree")))
     driver.find_element(By.CLASS_NAME, "agree").click()
 
@@ -56,7 +56,7 @@ def etf_vaneck_usa(driver):
     etf_list = []
     driver.get("https://www.vaneck.com/us/en/etf-mutual-fund-finder/etfs/")
 
-    # Interaction with legal notice.
+    # Interaction with legal disclaimer.
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-ve-gtm="ahp-investor-type"]')))
     WebDriverWait(driver, timeout=20).until(expected_conditions.invisibility_of_element_located((By.ID, "viewport-wide-spinner")))
     driver.find_element(By.CSS_SELECTOR, '[data-ve-gtm="ahp-investor-type"]').click()

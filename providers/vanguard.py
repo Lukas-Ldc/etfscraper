@@ -22,7 +22,7 @@ def etf_vanguard_irl(driver):
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "onetrust-reject-all-handler")))
     driver.find_element(By.ID, "onetrust-reject-all-handler").click()
 
-    # Interaction with legal notice.
+    # Interaction with legal disclaimer.
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "mat-select-0")))
     driver.find_element(By.ID, "mat-select-0").click()
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "mat-option-0")))

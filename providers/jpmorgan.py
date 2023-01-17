@@ -31,7 +31,7 @@ def etf_jpmorgan_irl(driver):
     except NoSuchElementException:
         pass
 
-    # Interaction with legal notice.
+    # Interaction with legal disclaimer.
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "accept")))
     driver.find_element(By.CLASS_NAME, "accept").click()
 

@@ -18,7 +18,7 @@ def etf_direxion(driver):
     etf_list = []
     driver.get("https://www.direxion.com/etfs")
 
-    # Removing the overlay.
+    # Removing the alerts subscription overlay.
     WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "fancybox-close")))
     driver.find_element(By.CLASS_NAME, "fancybox-close").click()
 

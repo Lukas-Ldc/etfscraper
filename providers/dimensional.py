@@ -7,6 +7,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from selenium.common.exceptions import TimeoutException
 
+
 def etf_dimensional(driver):
     """This function retrieves ETFs from the following URL: https://www.dimensional.com/us-en/funds
 
@@ -25,7 +26,7 @@ def etf_dimensional(driver):
     except TimeoutException:
         pass
 
-    # Interaction with the type of investor.
+    # Interaction with legal disclaimer.
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-a-lbl="an Individual Investor"]')))
     driver.find_element(By.CSS_SELECTOR, '[data-a-lbl="an Individual Investor"]').click()
 

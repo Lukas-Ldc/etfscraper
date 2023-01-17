@@ -22,7 +22,7 @@ def etf_ishares_gbr(driver):
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "onetrust-reject-all-handler")))
     driver.find_element(By.ID, "onetrust-reject-all-handler").click()
 
-    # Interaction with type of investor.
+    # Interaction with legal disclaimer.
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-link-event="Accept t&c: individual"]')))
     driver.find_element(By.CSS_SELECTOR, '[data-link-event="Accept t&c: individual"]').click()
 

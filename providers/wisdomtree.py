@@ -25,7 +25,7 @@ def etf_wisdomtree_irl(driver):
     WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.ID, "CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection")))
     driver.find_element(By.ID, "CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection").click()
 
-    # Interaction with type of investor.
+    # Interaction with legal disclaimer.
     WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.ID, "accept-terms-btn")))
     driver.find_element(By.ID, "accept-terms-btn").click()
 
@@ -56,7 +56,7 @@ def etf_wisdomtree_usa(driver):
     etf_list = []
     driver.get("https://www.wisdomtree.com/investments/etfs")
 
-    # Removing the overlay.
+    # Removing the local website overlay.
     try:
         WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "continue-btn")))
         driver.find_element(By.CLASS_NAME, "continue-btn").click()

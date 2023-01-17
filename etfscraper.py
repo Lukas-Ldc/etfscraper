@@ -101,6 +101,7 @@ for func in etf_functions:
             etfs_list.append(etf)
         driver.delete_all_cookies()
     except NoSuchWindowException:
+        print(f"----------Window closed when {func} was running, results skipped and program stopped----------")
         print(traceback.format_exc())
         break
     except Exception:
@@ -110,10 +111,11 @@ for func in etf_functions:
 driver.quit()
 
 # File saving
-date = str(datetime.now()).split(".")[0].replace(" ", "T")
-csv_file = path.join(path.dirname(__file__), "output", f"etfscraper_{date}.csv")
+if len(etfs_list) > 1:
+    date = str(datetime.now()).split(".")[0].replace(" ", "T")
+    csv_file = path.join(path.dirname(__file__), "output", f"etfscraper_{date}.csv")
 
-with open(csv_file, mode='w', encoding="utf-8") as file:
-    csvwriter = writer(file, delimiter=",", quoting=QUOTE_ALL)
-    csvwriter.writerow(["TICKER", "NAME", "URL"])
-    csvwriter.writerows(etfs_list)
+    with open(csv_file, mode='w', encoding="utf-8") as file:
+        csvwriter = writer(file, delimiter=",", quoting=QUOTE_ALL)
+        csvwriter.writerow(["TICKER", "NAME", "URL"])
+        csvwriter.writerows(etfs_list)

@@ -23,13 +23,12 @@ def etf_invesco_irl(driver):
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "agree-button")))
     driver.find_element(By.CLASS_NAME, "agree-button").click()
 
-    # Interaction with the country.
+    # Interaction with legal disclaimer.
     WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.XPATH, "//select[@class='all_terms']")))
     driver.execute_script("arguments[0].style.display = 'block';", driver.find_element(By.XPATH, "//select[@class='all_terms']"))
     WebDriverWait(driver, timeout=20).until(expected_conditions.visibility_of_element_located((By.XPATH, "//select[@class='all_terms']")))
     Select(driver.find_element(By.XPATH, "//select[@class='all_terms']")).select_by_value("Ireland")
 
-    # Interaction with the type of investor.
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.XPATH, "//button[@class='private']")))
     driver.find_element(By.XPATH, "//button[@class='private']").click()
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "overlay_button_submit")))
@@ -62,7 +61,7 @@ def etf_invesco_usa(driver):
     etf_list = []
     driver.get("https://www.invesco.com/us/financial-products/etfs/performance")
 
-    # Interaction with the type of investor.
+    # Interaction with legal disclaimer.
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "Individual Investor")))
     driver.find_element(By.CSS_SELECTOR, '[data-investor="IndividualInvestor"]').find_element(By.CLASS_NAME, "o-label").click()
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-event-action="audience role selector click"]')))

@@ -20,7 +20,7 @@ def etf_amundi(driver):
     etf_list = []
     driver.get("https://www.amundietf.fr/fr/professionnels/produits-etf/recherche")
 
-    # Interaction with type of investor.
+    # Interaction with legal disclaimer.
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-profile="INSTIT"]')))
     driver.find_element(By.CSS_SELECTOR, '[data-profile="INSTIT"]').click()
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "confirmDisclaimer")))

@@ -19,7 +19,7 @@ def etf_goldmansachs_gbr(driver):
     etf_list = []
     driver.get("https://www.gsam.com/content/gsam/uk/en/advisers/products/etf-fund-finder.html")
 
-    # Interaction with legal notice.
+    # Interaction with legal disclaimer.
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "tocaccept")))
     driver.find_element(By.ID, "tocaccept").click()
     WebDriverWait(driver, timeout=20).until(expected_conditions.invisibility_of_element_located((By.CLASS_NAME, "center-modal-overlay-container")))

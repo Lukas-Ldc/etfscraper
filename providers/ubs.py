@@ -28,7 +28,7 @@ def etf_ubs(driver):
     except TimeoutException:
         pass
 
-    # Interaction with type of investor.
+    # Interaction with legal disclaimer.
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "privateinvestors--id-2-label")))
     driver.find_element(By.ID, "privateinvestors--id-2-label").click()
     sleep(2)

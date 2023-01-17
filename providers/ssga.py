@@ -19,7 +19,7 @@ def etf_ssga_irl(driver):
     etf_list = []
     driver.get("https://www.ssga.com/ie/en_gb/institutional/etfs/fund-finder")
 
-    # Interaction with cookies.
+    # Interaction with cookies and legal disclaimer.
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "js-ssmp-clrCookieSettingsLabel")))
     ActionChains(driver).move_to_element(driver.find_element(By.ID, "js-ssmp-clrCookieSettingsLabel")).perform()
     driver.find_element(By.ID, "js-ssmp-clrCookieSettingsLabel").click()
@@ -57,7 +57,7 @@ def etf_ssga_usa(driver):
     etf_list = []
     driver.get("https://www.ssga.com/us/en/individual/etfs/fund-finder")
 
-    # Interaction with cookies.
+    # Interaction with cookies and legal disclaimer.
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "js-ssmp-clrCookieSettingsLabel")))
     ActionChains(driver).move_to_element(driver.find_element(By.ID, "js-ssmp-clrCookieSettingsLabel")).perform()
     driver.find_element(By.ID, "js-ssmp-clrCookieSettingsLabel").click()

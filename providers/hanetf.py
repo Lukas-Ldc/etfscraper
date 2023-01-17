@@ -18,7 +18,7 @@ def etf_hanetf(driver):
     etf_list = []
     driver.get("https://www.hanetf.com/product-list")
 
-    # Interaction with type of investor.
+    # Interaction with legal disclaimer.
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "ctl00_rptCountries_ctl03_lnkCountry")))
     driver.find_element(By.ID, "ctl00_rptCountries_ctl03_lnkCountry").click()
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-type="individual"]')))

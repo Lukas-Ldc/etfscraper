@@ -23,7 +23,7 @@ def etf_indexiq(driver):
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "modal-footer__cookies")))
     driver.find_element(By.CLASS_NAME, "modal-footer__cookies").click()
 
-    # Interaction with type of investor.
+    # Interaction with legal disclaimer.
     WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, '[data-selector="individual"]')))
     driver.find_element(By.CLASS_NAME, "cmp-role-selection__modal").find_element(By.CSS_SELECTOR, '[data-selector="individual"]').click()
 

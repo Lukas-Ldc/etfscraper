@@ -18,7 +18,7 @@ def etf_finex(driver):
     etf_list = []
     driver.get("https://www.finexetf.com/product/")
 
-    # Interaction with legal notice.
+    # Interaction with legal disclaimer.
     WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "chooseColumn-0-2-97")))
     driver.find_element(By.CLASS_NAME, "chooseColumn-0-2-97").find_elements(By.TAG_NAME, "div")[0].click()
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "title-0-2-116")))
