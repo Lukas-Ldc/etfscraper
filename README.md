@@ -21,6 +21,7 @@ While the script is running, don't interact with the browser: window size and pl
 - <a href="https://www.allianzim.com/" target="_blank">Allianz</a> (USA)
 - <a href="https://www.amundietf.com/?skip=true" target="_blank">Amundi</a> (FRA)
 - <a href="https://ark-funds.com/" target="_blank">ARK</a> (USA)
+- <a href="https://www.capitalgroup.com/" target="_blank">Capital Group</a> (USA)
 - <a href="https://www.schwab.com/" target="_blank">Charles Schwab</a> (USA)
 - <a href="https://www.defianceetfs.com/" target="_blank">Defiance</a> (USA)
 - <a href="https://www.dimensional.com/" target="_blank">Dimensional</a> (USA)
