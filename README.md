@@ -49,4 +49,4 @@ While the script is running, don't interact with the browser: window size and pl
 - <a href="https://www.ubs.com/" target="_blank">UBS</a> (CHE)
 - <a href="https://www.vaneck.com/" target="_blank">VanEck</a> (IRL, USA)
 - <a href="https://global.vanguard.com/" target="_blank">Vanguard</a> (IRL, USA)
-- <a href="https://www.wisdomtree.com/" target="_blank">WisdomTree</a> (USA)
+- <a href="https://www.wisdomtree.com/" target="_blank">WisdomTree</a> (IRL, USA)

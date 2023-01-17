@@ -41,7 +41,7 @@ from providers.ssga import etf_ssga_irl, etf_ssga_usa
 from providers.ubs import etf_ubs
 from providers.vaneck import etf_vaneck_irl, etf_vaneck_usa
 from providers.vanguard import etf_vanguard_irl, etf_vanguard_usa
-from providers.wisdomtree import etf_wisdomtree
+from providers.wisdomtree import etf_wisdomtree_irl, etf_wisdomtree_usa
 
 # Initialisations
 etf_functions = [
@@ -85,7 +85,8 @@ etf_functions = [
     etf_vaneck_usa,
     etf_vanguard_irl,
     etf_vanguard_usa,
-    etf_wisdomtree
+    etf_wisdomtree_irl,
+    etf_wisdomtree_usa
 ]
 
 etfs_list = []
