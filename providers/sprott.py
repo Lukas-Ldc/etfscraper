@@ -5,6 +5,7 @@ Main website URL: https://sprott.com/
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
+from selenium.common.exceptions import TimeoutException
 
 
 def etf_sprott(driver):
@@ -19,8 +20,11 @@ def etf_sprott(driver):
     driver.get("https://sprott.com/")
 
     # Interaction with cookies.
-    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll")))
-    driver.find_element(By.ID, "CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll").click()
+    try:
+        WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll")))
+        driver.find_element(By.ID, "CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll").click()
+    except TimeoutException:
+        pass
 
     # Waiting for the presence of the menu.
     WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.ID, "mainNav")))

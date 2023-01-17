@@ -8,6 +8,7 @@ from os import path
 from csv import writer, QUOTE_ALL
 from datetime import datetime
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchWindowException
 
 from providers.advisorshares import etf_advisorshares
 from providers.amundi import etf_amundi
@@ -99,6 +100,9 @@ for func in etf_functions:
         for etf in func(driver):
             etfs_list.append(etf)
         driver.delete_all_cookies()
+    except NoSuchWindowException:
+        print(traceback.format_exc())
+        break
     except Exception:
         print(f"----------Exception for {func}, results skipped----------")
         print(traceback.format_exc())

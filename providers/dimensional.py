@@ -5,7 +5,7 @@ Main website URL: https://www.dimensional.com/
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
-
+from selenium.common.exceptions import TimeoutException
 
 def etf_dimensional(driver):
     """This function retrieves ETFs from the following URL: https://www.dimensional.com/us-en/funds
@@ -19,8 +19,11 @@ def etf_dimensional(driver):
     driver.get("https://www.dimensional.com/us-en/funds?ft=etf")
 
     # Interaction with cookies.
-    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "onetrust-reject-all-handler")))
-    driver.find_element(By.ID, "onetrust-reject-all-handler").click()
+    try:
+        WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "onetrust-reject-all-handler")))
+        driver.find_element(By.ID, "onetrust-reject-all-handler").click()
+    except TimeoutException:
+        pass
 
     # Interaction with the type of investor.
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-a-lbl="an Individual Investor"]')))

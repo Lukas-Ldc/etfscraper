@@ -7,6 +7,7 @@ from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
+from selenium.common.exceptions import TimeoutException
 
 
 def etf_ubs(driver):
@@ -21,8 +22,11 @@ def etf_ubs(driver):
     driver.get("https://www.ubs.com/ch/en/assetmanagement/funds/etf.html")
 
     # Interaction with cookies.
-    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "privacysettings__declineAllCookies")))
-    driver.find_element(By.CLASS_NAME, "privacysettings__declineAllCookies").click()
+    try:
+        WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "privacysettings__declineAllCookies")))
+        driver.find_element(By.CLASS_NAME, "privacysettings__declineAllCookies").click()
+    except TimeoutException:
+        pass
 
     # Interaction with type of investor.
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "privateinvestors--id-2-label")))

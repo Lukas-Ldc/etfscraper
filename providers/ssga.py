@@ -2,6 +2,7 @@
 This is the SSGA module.
 Main website URL: https://www.ssga.com/
 """
+from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
@@ -20,6 +21,7 @@ def etf_ssga_irl(driver):
 
     # Interaction with cookies.
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "js-ssmp-clrCookieSettingsLabel")))
+    ActionChains(driver).move_to_element(driver.find_element(By.ID, "js-ssmp-clrCookieSettingsLabel")).perform()
     driver.find_element(By.ID, "js-ssmp-clrCookieSettingsLabel").click()
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "save-preference-btn-handler")))
     driver.find_element(By.CLASS_NAME, "save-preference-btn-handler").click()
@@ -56,6 +58,11 @@ def etf_ssga_usa(driver):
     driver.get("https://www.ssga.com/us/en/individual/etfs/fund-finder")
 
     # Interaction with cookies.
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "js-ssmp-clrCookieSettingsLabel")))
+    ActionChains(driver).move_to_element(driver.find_element(By.ID, "js-ssmp-clrCookieSettingsLabel")).perform()
+    driver.find_element(By.ID, "js-ssmp-clrCookieSettingsLabel").click()
+    WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "save-preference-btn-handler")))
+    driver.find_element(By.CLASS_NAME, "save-preference-btn-handler").click()
     WebDriverWait(driver, timeout=20).until(expected_conditions.element_to_be_clickable((By.ID, "js-ssmp-clrButtonLabel")))
     driver.find_element(By.ID, "js-ssmp-clrButtonLabel").click()
 

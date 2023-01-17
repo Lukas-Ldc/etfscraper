@@ -5,6 +5,7 @@ Main website URL: https://www.wisdomtree.com/
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
+from selenium.common.exceptions import ElementNotInteractableException
 
 
 def etf_wisdomtree_irl(driver):
@@ -56,8 +57,11 @@ def etf_wisdomtree_usa(driver):
     driver.get("https://www.wisdomtree.com/investments/etfs")
 
     # Removing the overlay.
-    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "continue-btn")))
-    driver.find_element(By.CLASS_NAME, "continue-btn").click()
+    try:
+        WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "continue-btn")))
+        driver.find_element(By.CLASS_NAME, "continue-btn").click()
+    except ElementNotInteractableException:
+        pass
 
     # Waiting for the presence of a line in the table.
     WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "nameLink")))
