@@ -25,7 +25,7 @@ def etf_expat(driver):
     for etf_row in driver.find_elements(By.CLASS_NAME, "alternating-funds"):
         etf_data = []
 
-        etf_data.append("")  # Ticker
+        etf_data.append("-")  # Ticker
         etf_data.append(etf_row.find_elements(By.TAG_NAME, "a")[1].text)  # Name
         etf_data.append(etf_row.find_elements(By.TAG_NAME, "a")[0].get_attribute("href"))  # URL
 

@@ -35,7 +35,7 @@ def etf_dws(driver):
     for etf_row in driver.find_element(By.CLASS_NAME, "partial-update-content-container").find_elements(By.TAG_NAME, "tr"):
         etf_data = []
 
-        etf_data.append("")  # Ticker
+        etf_data.append("-")  # Ticker
         etf_data.append(str(etf_row.find_element(By.TAG_NAME, "a").text).split("\n")[1])  # Name
         etf_data.append(etf_row.find_element(By.TAG_NAME, "a").get_attribute("href"))  # URL
 

@@ -56,7 +56,7 @@ def etf_ubs(driver):
         for etf_row in driver.find_element(By.TAG_NAME, "tbody").find_elements(By.TAG_NAME, "tr"):
             etf_data = []
 
-            etf_data.append("")  # Ticker
+            etf_data.append("-")  # Ticker
             etf_data.append(etf_row.find_elements(By.TAG_NAME, "a")[0].text)  # Name
             etf_data.append(etf_row.find_elements(By.TAG_NAME, "a")[0].get_attribute("href"))  # URL
 

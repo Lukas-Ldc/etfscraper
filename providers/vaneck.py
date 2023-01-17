@@ -35,6 +35,7 @@ def etf_vaneck_irl(driver):
     for etf_row in driver.find_element(By.XPATH, "//table[@id='overview']").find_element(By.TAG_NAME, "tbody").find_elements(By.TAG_NAME, "tr"):
         etf_data = []
 
+        driver.execute_script("arguments[0].scrollIntoView({behavior: 'instant', block: 'center', inline: 'center'});", etf_row)
         etf_data.append(etf_row.find_elements(By.TAG_NAME, "a")[0].text)  # Ticker
         etf_data.append(etf_row.find_elements(By.TAG_NAME, "a")[1].text)  # Name
         etf_data.append(etf_row.find_elements(By.TAG_NAME, "a")[0].get_attribute('href'))  # URL
@@ -71,6 +72,7 @@ def etf_vaneck_usa(driver):
     for etf_row in driver.find_element(By.XPATH, "//table[@id='overview']").find_element(By.TAG_NAME, "tbody").find_elements(By.TAG_NAME, "tr"):
         etf_data = []
 
+        driver.execute_script("arguments[0].scrollIntoView({behavior: 'instant', block: 'center', inline: 'center'});", etf_row)
         etf_data.append(etf_row.find_elements(By.TAG_NAME, "a")[0].text)  # Ticker
         etf_data.append(etf_row.find_elements(By.TAG_NAME, "a")[1].text)  # Name
         etf_data.append(etf_row.find_elements(By.TAG_NAME, "a")[0].get_attribute('href'))  # URL

@@ -18,8 +18,12 @@ def etf_direxion(driver):
     etf_list = []
     driver.get("https://www.direxion.com/etfs")
 
+    # Removing the overlay.
+    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "fancybox-close")))
+    driver.find_element(By.CLASS_NAME, "fancybox-close").click()
+
     # Waiting for the presence of the table.
-    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "dx-table")))
+    WebDriverWait(driver, timeout=20).until(expected_conditions.visibility_of_all_elements_located((By.CLASS_NAME, "dx-table__tbody-item")))
 
     # For each row in the table.
     for etf_row in driver.find_element(By.CLASS_NAME, "dx-table").find_elements(By.CLASS_NAME, "dx-table__tbody-item"):
