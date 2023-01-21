@@ -3,15 +3,16 @@ This is the First Trust module.
 Main website URL: https://www.ftportfolios.com/
 """
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
+from selenium.common.exceptions import NoSuchElementException
 
 
-def etf_firsttrust(driver):
+def etf_firsttrust(driver, wdwait):
     """This function retrieves ETFs from the following URL: https://www.ftportfolios.com/Retail/etf/etflist.aspx
 
     Arguments:
-        driver (WebDriver): The Selenium WebDriver used for scraping.
+        driver (WebDriver): The web browser that allows to interact with web pages.
+        wdwait (WebDriverWait): The timeout that allows to wait for explicit conditions.
     Returns:
         etf_list (list): The results of the scraping.
     """
@@ -19,18 +20,19 @@ def etf_firsttrust(driver):
     driver.get("https://www.ftportfolios.com/Retail/etf/etflist.aspx")
 
     # Waiting for the presence of the table.
-    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "searchResults")))
+    wdwait.until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "searchResults")))
 
-    # For each table.
-    for etf_table in driver.find_elements(By.CLASS_NAME, "searchResults"):
-
-        # For each row in the table.
-        for etf_row in etf_table.find_elements(By.TAG_NAME, "tr")[1:]:
+    # For each row in each table.
+    for etf_row in driver.find_elements(By.CSS_SELECTOR, ".searchResults tr"):
+        try:
+            etf_row.find_element(By.TAG_NAME, "th")
+        except NoSuchElementException:
             etf_data = []
+            tag_a = etf_row.find_elements(By.TAG_NAME, "a")
 
             etf_data.append(etf_row.find_elements(By.TAG_NAME, "td")[1].text)  # Ticker
-            etf_data.append(etf_row.find_elements(By.TAG_NAME, "a")[0].text)  # Name
-            etf_data.append(etf_row.find_elements(By.TAG_NAME, "a")[0].get_attribute('href'))  # URL
+            etf_data.append(tag_a[0].text)  # Name
+            etf_data.append(tag_a[0].get_attribute('href'))  # URL
 
             etf_list.append(etf_data)
 

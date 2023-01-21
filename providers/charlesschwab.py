@@ -3,15 +3,15 @@ This is the Charles Schwab module.
 Main website URL: https://www.schwab.com/
 """
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 
 
-def etf_charlesschwab(driver):
+def etf_charlesschwab(driver, wdwait):
     """This function retrieves ETFs from the following URL: https://www.schwab.com/research/etfs/tools/schwab-etfs
 
     Arguments:
-        driver (WebDriver): The Selenium WebDriver used for scraping.
+        driver (WebDriver): The web browser that allows to interact with web pages.
+        wdwait (WebDriverWait): The timeout that allows to wait for explicit conditions.
     Returns:
         etf_list (list): The results of the scraping.
     """
@@ -19,26 +19,26 @@ def etf_charlesschwab(driver):
     driver.get("https://www.schwab.com/research/etfs/tools/schwab-etfs")
 
     # Waiting for the presence of the iframe and switching to it.
-    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "schwab-responsive-iframe--no-wrapper")))
-    driver.switch_to.frame(driver.find_element(By.CLASS_NAME, "schwab-responsive-iframe--no-wrapper").find_element(By.TAG_NAME, "iframe"))
+    wdwait.until(expected_conditions.frame_to_be_available_and_switch_to_it((By.CSS_SELECTOR, ".schwab-responsive-iframe--no-wrapper iframe")))
 
     # Waiting for the presence of the button.
-    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.ID, "ctrlSchwabETFsTypes11")))
+    wdwait.until(expected_conditions.presence_of_element_located((By.ID, "ctrlSchwabETFsTypes11")))
 
     # For all ETF tables.
     for etf_table in ["ctrlSchwabETFsTypes11", "ctrlSchwabETFsTypes31", "ctrlSchwabETFsTypes51", "ctrlSchwabETFsTypes71"]:
         driver.find_element(By.ID, etf_table).click()
 
         # Waiting for the presence of the table.
-        WebDriverWait(driver, timeout=20).until(expected_conditions.invisibility_of_element_located((By.CLASS_NAME, "mvloader")))
+        wdwait.until(expected_conditions.invisibility_of_element_located((By.CLASS_NAME, "mvloader")))
 
         # For each row in the table.
-        for etf_row in driver.find_element(By.CLASS_NAME, "mvActiveContainer").find_elements(By.CLASS_NAME, "SchwabETFsSymbolModule"):
+        for etf_row in driver.find_elements(By.CSS_SELECTOR, ".mvActiveContainer .SchwabETFsSymbolModule"):
             etf_data = []
+            select_symbol_a = etf_row.find_element(By.CSS_SELECTOR, ".symbol a")
 
-            etf_data.append(etf_row.find_element(By.CLASS_NAME, "symbol").find_element(By.TAG_NAME, "a").text)  # Ticker
+            etf_data.append(select_symbol_a.text)  # Ticker
             etf_data.append(etf_row.find_element(By.CLASS_NAME, "description").find_elements(By.TAG_NAME, "div")[0].text)  # Name
-            etf_data.append(etf_row.find_element(By.CLASS_NAME, "symbol").find_element(By.TAG_NAME, "a").get_attribute('href'))  # URL
+            etf_data.append(select_symbol_a.get_attribute('href'))  # URL
 
             etf_list.append(etf_data)
 

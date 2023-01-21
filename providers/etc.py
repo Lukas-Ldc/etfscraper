@@ -3,15 +3,15 @@ This is the ETC module.
 Main website URL: https://exchangetradedconcepts.com/
 """
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 
 
-def etf_etc(driver):
+def etf_etc(driver, wdwait):
     """This function retrieves ETFs from the following URL: https://exchangetradedconcepts.com/funds
 
     Arguments:
-        driver (WebDriver): The Selenium WebDriver used for scraping.
+        driver (WebDriver): The web browser that allows to interact with web pages.
+        wdwait (WebDriverWait): The timeout that allows to wait for explicit conditions.
     Returns:
         etf_list (list): The results of the scraping.
     """
@@ -19,14 +19,15 @@ def etf_etc(driver):
     driver.get("https://exchangetradedconcepts.com/funds")
 
     # Waiting for the presence of the table.
-    WebDriverWait(driver, timeout=20).until(expected_conditions.presence_of_element_located((By.TAG_NAME, "tbody")))
+    wdwait.until(expected_conditions.presence_of_element_located((By.TAG_NAME, "tbody")))
 
     # For each row in the table.
-    for etf_row in driver.find_element(By.TAG_NAME, "tbody").find_elements(By.TAG_NAME, "tr"):
+    for etf_row in driver.find_elements(By.CSS_SELECTOR, "tbody tr"):
         etf_data = []
+        tag_span = etf_row.find_elements(By.TAG_NAME, "span")
 
-        etf_data.append(etf_row.find_elements(By.TAG_NAME, "span")[0].text)  # Ticker
-        etf_data.append(etf_row.find_elements(By.TAG_NAME, "span")[2].text)  # Name
+        etf_data.append(tag_span[0].text)  # Ticker
+        etf_data.append(tag_span[2].text)  # Name
         etf_data.append(etf_row.find_elements(By.TAG_NAME, "a")[0].get_attribute("url"))  # URL
 
         etf_list.append(etf_data)

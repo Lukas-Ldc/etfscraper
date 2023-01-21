@@ -1,6 +1,8 @@
 # ETF Scraper
 This script saves you time when searching for Exchange Traded Funds. No need to spend hours browsing providers' websites or wondering if aggregators' lists are up to date. Below you will find the list of available providers and in brackets the country of the website from which the data originated.
 
+This script is provided as-is and its use is at the sole discretion of the user. By using this script, you agree to be fully responsible for any legal repercussions that may arise from its use. Please make sure to read and understand the privacy policies and terms of use of the websites that this script is scraping data from before using this script to avoid any potential legal issues.
+
 ## Installation and use
 You need to have <a href="https://www.python.org/" target="_blank">Python</a> and <a href="https://pypi.org/" target="_blank">PyPI</a> installed. You might want to use a <a href="https://docs.python.org/3/library/venv.html" target="_blank">virtual environment</a>.
 

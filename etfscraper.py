@@ -5,9 +5,11 @@ The final results are saved in the "output" folder.
 """
 import traceback
 from os import path
+from time import sleep
 from csv import writer, QUOTE_ALL
 from datetime import datetime
 from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
 from selenium.common.exceptions import NoSuchWindowException
 
 from providers.advisorshares import etf_advisorshares
@@ -97,20 +99,40 @@ etf_functions = [
 etfs_list = []
 driver = webdriver.Chrome()
 driver.set_window_size(1920, 1080)
+wdwait = WebDriverWait(driver, timeout=20)  # Adjust this timeout depending on your bandwidth (maximum loading time of an element on a page).
 
 # Scraping
+STOP = False
 for func in etf_functions:
-    try:
-        for etf in func(driver):
-            etfs_list.append(etf)
-        driver.delete_all_cookies()
-    except NoSuchWindowException:
-        print(f"----------Window closed when {func} was running, results skipped and program stopped----------")
-        print(traceback.format_exc())
+    ATTEMPTS = 3
+
+    while ATTEMPTS > 0:
+        try:
+            results = func(driver, wdwait)
+            for etf in results:
+                etfs_list.append(etf)
+            if len(results) < 1:
+                print(f"----------No results came from {func}----------")
+            driver.delete_all_cookies()
+            ATTEMPTS = 0
+            sleep(2)  # Adjust this timeout depending on your bandwidth (time before scraping the next page).
+
+        except NoSuchWindowException:
+            print(f"----------Window closed when {func} was running, results skipped and program stopped----------")
+            print(traceback.format_exc())
+            STOP = True
+            ATTEMPTS = 0
+
+        except Exception:
+            print(f"----------Exception for {func}, attempt {4-ATTEMPTS}, results skipped after 3 try----------")
+            if ATTEMPTS == 1:
+                print(traceback.format_exc())
+            ATTEMPTS -= 1
+            driver.delete_all_cookies()
+            sleep(10)
+
+    if STOP:
         break
-    except Exception:
-        print(f"----------Exception for {func}, results skipped----------")
-        print(traceback.format_exc())
 
 driver.quit()
 
