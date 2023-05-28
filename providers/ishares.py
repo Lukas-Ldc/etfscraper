@@ -4,9 +4,11 @@ Main website URL: https://www.ishares.com/us/ishares-global
 """
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
 
 
-def etf_ishares_gbr(driver, wdwait):
+def etf_ishares_gbr(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URL: https://www.ishares.com/uk/individual/en/products/etf-investments
 
     Arguments:
@@ -42,7 +44,7 @@ def etf_ishares_gbr(driver, wdwait):
     return etf_list
 
 
-def etf_ishares_usa(driver, wdwait):
+def etf_ishares_usa(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URL: https://www.ishares.com/us/products/etf-investments
 
     Arguments:

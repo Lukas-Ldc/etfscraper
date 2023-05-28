@@ -4,10 +4,12 @@ Main website URL: https://sprott.com/
 """
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
 from selenium.common.exceptions import TimeoutException
 
 
-def etf_sprott(driver, wdwait):
+def etf_sprott(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URL: https://sprott.com/
 
     Arguments:

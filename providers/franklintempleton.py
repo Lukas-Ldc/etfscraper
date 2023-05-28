@@ -6,9 +6,11 @@ Main website URL: https://www.franklintempleton.com/
 from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
 
 
-def etf_franklintempleton_irl(driver, wdwait):
+def etf_franklintempleton_irl(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URL: https://www.franklintempleton.ie/our-funds/price-and-performance-etfs
 
     Arguments:
@@ -55,7 +57,7 @@ def etf_franklintempleton_irl(driver, wdwait):
     return etf_list
 
 
-def etf_franklintempleton_usa(driver, wdwait):
+def etf_franklintempleton_usa(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URL: https://www.franklintempleton.com/investments/options/exchange-traded-funds
 
     Arguments:

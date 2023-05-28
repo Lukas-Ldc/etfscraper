@@ -3,11 +3,12 @@ This is the Invesco module.
 Main website URL: https://www.invesco.com/
 """
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.select import Select
 from selenium.webdriver.support import expected_conditions
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support.select import Select
 
-
-def etf_invesco_irl(driver, wdwait):
+def etf_invesco_irl(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URL: https://etf.invesco.com/ie/private/en/products
 
     Arguments:
@@ -46,7 +47,7 @@ def etf_invesco_irl(driver, wdwait):
     return etf_list
 
 
-def etf_invesco_usa(driver, wdwait):
+def etf_invesco_usa(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URL: https://www.invesco.com/us/financial-products/etfs/performance
 
     Arguments:

@@ -5,10 +5,12 @@ Main website URL: https://am.jpmorgan.com/
 from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 
 
-def etf_jpmorgan_irl(driver, wdwait):
+def etf_jpmorgan_irl(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URL: https://am.jpmorgan.com/ie/en/asset-management/institutional/products/fund-explorer/etf
 
     Arguments:
@@ -70,7 +72,7 @@ def etf_jpmorgan_irl(driver, wdwait):
     return etf_list
 
 
-def etf_jpmorgan_usa(driver, wdwait):
+def etf_jpmorgan_usa(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URL: https://am.jpmorgan.com/us/en/asset-management/per/products/fund-explorer/etf
 
     Arguments:

@@ -4,9 +4,11 @@ Main website URL: https://www.globalxetfs.com
 """
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
 
 
-def etf_globalx(driver, wdwait):
+def etf_globalx(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URL: https://www.globalxetfs.com/explore/
 
     Arguments:

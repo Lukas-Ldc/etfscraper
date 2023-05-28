@@ -5,10 +5,12 @@ Main website URL: https://www.innovatoretfs.com/
 from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
 
 
-def etf_innovator(driver, wdwait):
+def etf_innovator(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URL: https://www.innovatoretfs.com/define/etfs/
 
     Arguments:

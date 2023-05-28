@@ -5,10 +5,12 @@ Main website URL: https://www.ubs.com/
 from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
 from selenium.common.exceptions import TimeoutException
 
 
-def etf_ubs(driver, wdwait):
+def etf_ubs(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URL: https://www.ubs.com/ch/en/assetmanagement/funds/etf.html
 
     Arguments:

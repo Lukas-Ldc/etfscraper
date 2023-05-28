@@ -4,9 +4,11 @@ Main website URL: https://ark-funds.com/
 """
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
 
 
-def etf_ark(driver, wdwait):
+def etf_ark(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URL: https://ark-funds.com/our-etfs/
 
     Arguments:

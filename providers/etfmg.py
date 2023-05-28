@@ -4,9 +4,11 @@ Main website URL: https://etfmg.com/
 """
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
 
 
-def etf_etfmg(driver, wdwait):
+def etf_etfmg(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URL: https://etfmg.com/our-funds/
 
     Arguments:

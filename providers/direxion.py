@@ -4,10 +4,12 @@ Main website URL: https://www.direxion.com/
 """
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
 from selenium.common.exceptions import TimeoutException
 
 
-def etf_direxion(driver, wdwait):
+def etf_direxion(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URL: https://www.direxion.com/etfs
 
     Arguments:

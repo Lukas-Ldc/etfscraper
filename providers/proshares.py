@@ -4,9 +4,11 @@ Main website URL: https://www.proshares.com/
 """
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
 
 
-def etf_proshares(driver, wdwait):
+def etf_proshares(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URLs: https://www.proshares.com/our-etfs/find-strategic-etfs and https://www.proshares.com/our-etfs/find-leveraged-and-inverse-etfs
 
     Arguments:

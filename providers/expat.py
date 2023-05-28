@@ -4,9 +4,11 @@ Main website URL: https://expat.bg/en/
 """
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
 
 
-def etf_expat(driver, wdwait):
+def etf_expat(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URL: https://expat.bg/en/passive-funds
 
     Arguments:

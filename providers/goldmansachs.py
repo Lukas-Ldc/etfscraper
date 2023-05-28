@@ -5,9 +5,11 @@ Main website URL: https://www.gsam.com/
 from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
 
 
-def etf_goldmansachs_gbr(driver, wdwait):
+def etf_goldmansachs_gbr(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URL: https://www.gsam.com/content/gsam/uk/en/advisers/products/etf-fund-finder.html
 
     Arguments:
@@ -51,7 +53,7 @@ def etf_goldmansachs_gbr(driver, wdwait):
     return etf_list
 
 
-def etf_goldmansachs_usa(driver, wdwait):
+def etf_goldmansachs_usa(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URL: https://www.gsam.com/content/gsam/us/en/individual/products/etf-fund-finder.html
 
     Arguments:

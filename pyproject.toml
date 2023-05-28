@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "etfscraper"
-version = "0.1.2"
+version = "0.1.3"
 description = "This script saves you time when searching for Exchange Traded Funds (5000+ ETFs). No need to spend hours browsing providers' websites or wondering if aggregators' lists are up to date."
 authors = ["Lukas-Ldc <78859408+Lukas-Ldc@users.noreply.github.com>"]
 license = "GNU General Public License v3.0"

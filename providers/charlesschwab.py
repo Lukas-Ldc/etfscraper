@@ -4,9 +4,11 @@ Main website URL: https://www.schwab.com/
 """
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
 
 
-def etf_charlesschwab(driver, wdwait):
+def etf_charlesschwab(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URL: https://www.schwab.com/research/etfs/tools/schwab-etfs
 
     Arguments:

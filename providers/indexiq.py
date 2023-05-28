@@ -5,9 +5,11 @@ Main website URL: https://www.newyorklifeinvestments.com/
 from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
 
 
-def etf_indexiq(driver, wdwait):
+def etf_indexiq(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URL: https://www.newyorklifeinvestments.com/etf
 
     Arguments:

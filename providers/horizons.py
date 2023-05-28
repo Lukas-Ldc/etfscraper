@@ -5,9 +5,11 @@ Main website URL: https://horizonsetfs.com/
 from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
 
 
-def etf_horizons(driver, wdwait):
+def etf_horizons(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URL: https://horizonsetfs.com/products/
 
     Arguments:

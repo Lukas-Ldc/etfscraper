@@ -5,9 +5,11 @@ Main website URL: https://www.ssga.com/
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
 
 
-def etf_ssga_irl(driver, wdwait):
+def etf_ssga_irl(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URL: https://www.ssga.com/ie/en_gb/institutional/etfs/fund-finder
 
     Arguments:
@@ -46,7 +48,7 @@ def etf_ssga_irl(driver, wdwait):
     return etf_list
 
 
-def etf_ssga_usa(driver, wdwait):
+def etf_ssga_usa(driver: webdriver, wdwait: WebDriverWait):
     """This function retrieves ETFs from the following URL: https://www.ssga.com/us/en/individual/etfs/fund-finder
 
     Arguments:
