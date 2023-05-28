@@ -62,7 +62,7 @@ def etf_wisdomtree_usa(driver, wdwait):
         pass
 
     # Waiting for the presence of a line in the table.
-    wdwait.until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "nameLink")))
+    wdwait.until(expected_conditions.visibility_of_all_elements_located((By.CLASS_NAME, "nameLink")))
 
     # For each row in the table.
     for etf_row in driver.find_elements(By.CSS_SELECTOR, "tbody tr"):

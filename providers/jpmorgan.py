@@ -5,7 +5,7 @@ Main website URL: https://am.jpmorgan.com/
 from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
 
 
 def etf_jpmorgan_irl(driver, wdwait):
@@ -19,6 +19,12 @@ def etf_jpmorgan_irl(driver, wdwait):
     """
     etf_list = []
     driver.get("https://am.jpmorgan.com/ie/en/asset-management/institutional/products/fund-explorer/etf")
+
+    # Interaction with location redirection
+    try:
+        wdwait.until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "secondary"))).click()
+    except TimeoutException:
+        pass
 
     # Interaction with cookies.
     wdwait.until(expected_conditions.element_to_be_clickable((By.ID, "onetrust-pc-btn-handler"))).click()

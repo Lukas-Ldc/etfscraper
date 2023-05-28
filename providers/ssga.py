@@ -29,6 +29,7 @@ def etf_ssga_irl(driver, wdwait):
     # Waiting for the presence of the table.
     wdwait.until(expected_conditions.invisibility_of_element_located((By.CLASS_NAME, "ssmp-mobile-header")))
     wdwait.until(expected_conditions.invisibility_of_element_located((By.CLASS_NAME, "loader-container")))
+    wdwait.until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, ".tb-body tr")))
 
     # For each row in the table.
     for etf_row in driver.find_elements(By.CSS_SELECTOR, ".tb-body tr")[:-1]:
