@@ -4,6 +4,7 @@ Main website URL: https://www.direxion.com/
 """
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
+from selenium.common.exceptions import TimeoutException
 
 
 def etf_direxion(driver, wdwait):
@@ -19,7 +20,10 @@ def etf_direxion(driver, wdwait):
     driver.get("https://www.direxion.com/etfs")
 
     # Removing the alerts subscription overlay.
-    wdwait.until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "fancybox-close"))).click()
+    try:
+        wdwait.until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "fancybox-close"))).click()
+    except TimeoutException:
+        pass
 
     # Waiting for the presence of the table.
     wdwait.until(expected_conditions.visibility_of_all_elements_located((By.CLASS_NAME, "dx-table__tbody-item")))
