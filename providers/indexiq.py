@@ -22,7 +22,7 @@ def etf_indexiq(driver: webdriver, wdwait: WebDriverWait):
     driver.get("https://www.newyorklifeinvestments.com/etf")
 
     # Interaction with cookies.
-    wdwait.until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "modal-footer__cookies"))).click()
+    wdwait.until(expected_conditions.element_to_be_clickable((By.ID, "onetrust-reject-all-handler"))).click()
 
     # Interaction with legal disclaimer.
     wdwait.until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, '[data-selector="individual"]')))
