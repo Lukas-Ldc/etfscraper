@@ -21,32 +21,17 @@ def etf_fidelity(driver: webdriver, wdwait: WebDriverWait):
     driver.get("https://www.fidelity.com/etfs/different-types-of-etfs")
 
     # Waiting for the presence of a line in the table.
-    wdwait.until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "tabs--content-active")))
+    wdwait.until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "cp-filters-card-wrapper")))
 
     # For each element in the first type of table.
-    for etf_row in driver.find_elements(By.CSS_SELECTOR, "strong.last-child"):
-        if "®" in etf_row.get_attribute('textContent'):
-            etf_data = []
-            tag_a = etf_row.find_element(By.TAG_NAME, "a")
+    for etf_row in driver.find_element(By.ID, "ETFsdetailsallcardsFLEX").find_elements(By.CLASS_NAME, "scl-flex-card--desc-container"):
+        etf_data = []
+        tag_a = etf_row.find_element(By.TAG_NAME, "a")
 
-            etf_data.append(tag_a.get_attribute('textContent'))  # Ticker
-            etf_data.append(str(etf_row.get_attribute('textContent')).split("(")[0].strip())  # Name
-            etf_data.append(tag_a.get_attribute('href'))  # URL
+        etf_data.append(tag_a.get_attribute('textContent'))  # Ticker
+        etf_data.append(etf_row.find_elements(By.TAG_NAME, "h3")[1].get_attribute('textContent').split("\n")[2])  # Name
+        etf_data.append(tag_a.get_attribute('href'))  # URL
 
-            etf_list.append(etf_data)
-
-    # For each row in the second type of table.
-    for etf_row in driver.find_elements(By.CSS_SELECTOR, ".table-simple td"):
-        if "®" in etf_row.get_attribute('textContent'):
-            etf_data = []
-            ticker = str(etf_row.get_attribute('textContent')).split("(")[1].replace("We're sorry, quotes are currently unavailable. Please try again.", "") \
-                                                                            .replace("Close Popover", "").replace(")", "").replace("*", "").strip()
-
-            etf_data.append(ticker)  # Ticker
-            etf_data.append(str(etf_row.get_attribute('textContent')).split("(")[0].replace("†", "").strip())  # Name
-            etf_data.append(f"https://screener.fidelity.com/ftgw/etf/goto/snapshot/snapshot.jhtml?symbols={ticker}")  # URL
-
-            if etf_data not in etf_list:
-                etf_list.append(etf_data)
+        etf_list.append(etf_data)
 
     return etf_list
