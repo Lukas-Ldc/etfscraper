@@ -107,24 +107,27 @@ for func in etf_functions:
     ATTEMPTS = 3
 
     while ATTEMPTS > 0:
+        func_str = str(func).split(' ')[1]
         try:
             results = func(driver, wdwait)
             for etf in results:
                 etfs_list.append(etf)
             if len(results) < 1:
-                print(f"----------No results came from {func}----------")
+                print(f"-------- No results came from {func_str} --------")
+            else:
+                print(f"-- Results from {func_str} saved --")
             driver.delete_all_cookies()
             ATTEMPTS = 0
-            sleep(2)  # Adjust this timeout depending on your bandwidth (time before scraping the next page).
+            sleep(3)  # Adjust this timeout depending on your bandwidth (time before scraping the next page).
 
         except NoSuchWindowException:
-            print(f"----------Window closed when {func} was running, results skipped and program stopped----------")
+            print(f"-------- Window closed when {func_str} was running, results skipped and program stopped --------")
             print(traceback.format_exc())
             STOP = True
             ATTEMPTS = 0
 
         except Exception:
-            print(f"----------Exception for {func}, attempt {4-ATTEMPTS}, results skipped after 3 try----------")
+            print(f"-------- Exception for {func_str}, attempt {4-ATTEMPTS}, results skipped after 3 try --------")
             if ATTEMPTS == 1:
                 print(traceback.format_exc())
             ATTEMPTS -= 1
