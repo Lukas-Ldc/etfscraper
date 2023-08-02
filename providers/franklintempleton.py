@@ -82,8 +82,10 @@ def etf_franklintempleton_usa(driver: webdriver, wdwait: WebDriverWait):
     while True:
 
         # Scrolling to the page buttons.
+        driver.execute_script("arguments[0].scrollIntoView({behavior: 'instant', block: 'center'});", driver.find_element(By.ID, "important-legal-info"))
+        sleep(2)
         driver.execute_script("arguments[0].scrollIntoView({behavior: 'instant', block: 'center'});", class_page[1])
-        sleep(3)
+        sleep(1)
 
         # For each row in the table.
         for etf_row in driver.find_elements(By.CSS_SELECTOR, ".ag-center-cols-container .ag-row"):
@@ -99,6 +101,7 @@ def etf_franklintempleton_usa(driver: webdriver, wdwait: WebDriverWait):
         if "pagination__btn--hide" in class_page[1].get_attribute('class'):
             break
         else:
+
             class_page[1].click()
 
     return etf_list
