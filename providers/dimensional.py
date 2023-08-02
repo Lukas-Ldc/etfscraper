@@ -31,7 +31,7 @@ def etf_dimensional(driver: webdriver, wdwait: WebDriverWait):
     wdwait.until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-a-lbl="an Individual Investor"]'))).click()
 
     # Reloading page with ETF selector.
-    wdwait.until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "tools-fund-listing-table-scrollable-container")))
+    wdwait.until(expected_conditions.visibility_of_element_located((By.CLASS_NAME, "sticky-header-container")))
     driver.get("https://www.dimensional.com/us-en/funds?ft=etf")
 
     # Waiting for the presence of the table.
