@@ -21,15 +21,15 @@ def etf_defiance(driver: webdriver, wdwait: WebDriverWait):
     driver.get("https://www.defianceetfs.com/the-thematic-etf-boom/")
 
     # Waiting for the presence of the menu.
-    wdwait.until(expected_conditions.presence_of_element_located((By.ID, "list-etf")))
+    wdwait.until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "etf-list-wrp")))
 
     # For each row in the menu.
-    for etf_row in driver.find_elements(By.CSS_SELECTOR, "#list-etf a"):
+    for etf_row in driver.find_elements(By.CSS_SELECTOR, ".etf-list-wrp .etf-list-item"):
         etf_data = []
 
-        etf_data.append(str(etf_row.get_attribute('textContent')).split("\n")[0])  # Ticker
-        etf_data.append(str(etf_row.find_element(By.TAG_NAME, "div").get_attribute('textContent')).split("\n")[1].strip())  # Name
-        etf_data.append(etf_row.get_attribute("href"))  # URL
+        etf_data.append(str(etf_row.find_element(By.CLASS_NAME, "etf-list-abr").text))  # Ticker
+        etf_data.append(str(etf_row.find_element(By.CLASS_NAME, "etf-list-title").text))  # Name
+        etf_data.append(etf_row.find_element(By.TAG_NAME, "a").get_attribute("href"))  # URL
 
         etf_list.append(etf_data)
 

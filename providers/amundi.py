@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.common.exceptions import TimeoutException
 
 
 def etf_amundi(driver: webdriver, wdwait: WebDriverWait):
@@ -20,13 +21,15 @@ def etf_amundi(driver: webdriver, wdwait: WebDriverWait):
     etf_list = []
     driver.get("https://www.amundietf.fr/fr/professionnels/produits-etf/recherche")
 
-    # Interaction with legal disclaimer.
-    wdwait.until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-profile="INSTIT"]'))).click()
-    wdwait.until(expected_conditions.element_to_be_clickable((By.ID, "confirmDisclaimer"))).click()
-
-    # Interaction with cookies.
-    wdwait.until(expected_conditions.element_to_be_clickable((By.ID, "CookiesDisclaimerRibbonV1-Settings"))).click()
-    wdwait.until(expected_conditions.element_to_be_clickable((By.ID, "CookiesDisclaimerPopupV1-Save"))).click()
+    try:
+        # Interaction with legal disclaimer.
+        wdwait.until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, 'button[data-profile="INSTIT"]'))).click()
+        wdwait.until(expected_conditions.element_to_be_clickable((By.ID, "confirmDisclaimer"))).click()
+        # Interaction with cookies.
+        wdwait.until(expected_conditions.element_to_be_clickable((By.ID, "CookiesDisclaimerRibbonV1-Settings"))).click()
+        wdwait.until(expected_conditions.element_to_be_clickable((By.ID, "CookiesDisclaimerPopupV1-Save"))).click()
+    except TimeoutException:
+        pass
 
     # Waiting for the presence of a line in the table.
     wdwait.until(expected_conditions.presence_of_element_located((By.TAG_NAME, "tbody")))

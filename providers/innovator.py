@@ -55,7 +55,7 @@ def etf_innovator(driver: webdriver, wdwait: WebDriverWait):
         tag_a = etf_row.find_elements(By.TAG_NAME, "a")
 
         etf_data.append(tag_a[0].text)  # Ticker
-        etf_data.append(tag_a[4].text)  # Name
+        etf_data.append(tag_a[1].text)  # Name
         etf_data.append(tag_a[0].get_attribute("href"))  # URL
 
         etf_list.append(etf_data)

@@ -8,6 +8,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.common.exceptions import TimeoutException
 
 
 def etf_franklintempleton_irl(driver: webdriver, wdwait: WebDriverWait):
@@ -23,10 +24,14 @@ def etf_franklintempleton_irl(driver: webdriver, wdwait: WebDriverWait):
     driver.get("https://www.franklintempleton.ie/our-funds/price-and-performance-etfs#fund-identifiers")
 
     # Interaction with cookies.
-    wdwait.until(expected_conditions.element_to_be_clickable((By.ID, "onetrust-accept-btn-handler"))).click()
+    try:
+        wdwait.until(expected_conditions.element_to_be_clickable((By.ID, "onetrust-pc-btn-handler"))).click()
+        wdwait.until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "ot-pc-refuse-all-handler"))).click()
+    except TimeoutException:
+        pass
 
     # Waiting for the presence of a line in the table.
-    wdwait.until(expected_conditions.visibility_of_element_located((By.CLASS_NAME, "ag-cell-value")))
+    wdwait.until(expected_conditions.visibility_of_element_located((By.CLASS_NAME, "ag-center-cols-container")))
 
     # Retrieval of web page elements.
     class_page = driver.find_elements(By.CLASS_NAME, "ft__btn--pagination")
@@ -35,16 +40,18 @@ def etf_franklintempleton_irl(driver: webdriver, wdwait: WebDriverWait):
     while True:
 
         # Scrolling to the page buttons.
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        sleep(2)
         driver.execute_script("arguments[0].scrollIntoView({behavior: 'instant', block: 'center'});", class_page[1])
-        sleep(3)
+        sleep(1)
 
         # For each row in the table.
         for etf_row in driver.find_elements(By.CSS_SELECTOR, ".ag-center-cols-container .ag-row"):
             etf_data = []
             tag_a = etf_row.find_elements(By.TAG_NAME, "a")
 
-            etf_data.append(str(etf_row.find_elements(By.CLASS_NAME, "ag-cell")[2].find_element(By.TAG_NAME, "span").text).split(" ")[0])  # Ticker
-            etf_data.append(str(tag_a[0].text).rsplit(" - ", 1)[0])  # Name
+            etf_data.append(etf_row.find_element(By.CSS_SELECTOR, '[col-id="BLOOMBERG"]').text)  # Ticker
+            etf_data.append(str(tag_a[0].text).split("-")[0].strip())  # Name
             etf_data.append(tag_a[0].get_attribute("href"))  # URL
 
             etf_list.append(etf_data)
@@ -82,7 +89,7 @@ def etf_franklintempleton_usa(driver: webdriver, wdwait: WebDriverWait):
     while True:
 
         # Scrolling to the page buttons.
-        driver.execute_script("arguments[0].scrollIntoView({behavior: 'instant', block: 'center'});", driver.find_element(By.ID, "important-legal-info"))
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         sleep(2)
         driver.execute_script("arguments[0].scrollIntoView({behavior: 'instant', block: 'center'});", class_page[1])
         sleep(1)

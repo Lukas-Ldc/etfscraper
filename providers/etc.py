@@ -26,10 +26,9 @@ def etf_etc(driver: webdriver, wdwait: WebDriverWait):
     # For each row in the table.
     for etf_row in driver.find_elements(By.CSS_SELECTOR, "tbody tr"):
         etf_data = []
-        tag_span = etf_row.find_elements(By.TAG_NAME, "span")
 
-        etf_data.append(tag_span[0].text)  # Ticker
-        etf_data.append(tag_span[2].text)  # Name
+        etf_data.append(etf_row.find_elements(By.TAG_NAME, "td")[0].text)  # Ticker
+        etf_data.append(etf_row.find_elements(By.TAG_NAME, "td")[1].text)  # Name
         etf_data.append(etf_row.find_elements(By.TAG_NAME, "a")[0].get_attribute("url"))  # URL
 
         etf_list.append(etf_data)

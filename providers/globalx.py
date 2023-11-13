@@ -27,9 +27,10 @@ def etf_globalx(driver: webdriver, wdwait: WebDriverWait):
     for etf_row in driver.find_elements(By.CSS_SELECTOR, '[aria-live="polite"] tr'):
         etf_data = []
         tag_td = etf_row.find_elements(By.TAG_NAME, "td")
+        ticker = tag_td[0].find_element(By.TAG_NAME, "b").text
 
-        etf_data.append(tag_td[0].text)  # Ticker
-        etf_data.append(tag_td[1].text)  # Name
+        etf_data.append(ticker)  # Ticker
+        etf_data.append(str(tag_td[1].text).replace(f"View {ticker}'s fund page\n", ""))  # Name
         etf_data.append(tag_td[0].find_element(By.TAG_NAME, "a").get_attribute("href"))  # URL
 
         etf_list.append(etf_data)
