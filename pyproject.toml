@@ -10,14 +10,6 @@ readme = "README.md"
 python = ">=3.7.2"
 selenium = "4.*"
 
-[tool.poetry.group.linters]
-optional = true
-
-[tool.poetry.group.linters.dependencies]
-pylint = "*"
-bandit = "*"
-pycodestyle = "*"
-
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
