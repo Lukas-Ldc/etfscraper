@@ -24,8 +24,8 @@ def etf_dws(driver: webdriver, wdwait: WebDriverWait):
     wdwait.until(expected_conditions.element_to_be_clickable((By.ID, "consent_prompt_reject"))).click()
 
     # Interaction with legal disclaimerr.
-    wdwait.until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-title="Professional Clients"]'))).click()
-    wdwait.until(expected_conditions.element_to_be_clickable((By.ID, "en-gb"))).click()
+    wdwait.until(expected_conditions.element_to_be_clickable((By.ID, "pv_id_4_1"))).click()
+    wdwait.until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[name="continue"]'))).click()
 
     # Waiting for the presence of the table.
     wdwait.until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "partial-update-content-container")))

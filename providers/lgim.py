@@ -32,27 +32,20 @@ def etf_lgim(driver: webdriver, wdwait: WebDriverWait):
         pass
 
     # Waiting for the presence of a line in the table.
-    wdwait.until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, "#fc-root .min-h-screen .truncate")))
-    driver.execute_script("arguments[0].scrollIntoView({behavior: 'instant', block: 'center'});", driver.find_elements(By.CLASS_NAME, "overflow-hidden")[0])
-    sleep(1)
+    wdwait.until(expected_conditions.invisibility_of_element((By.CLASS_NAME, "canvas-zone-wrapper")))
+    wdwait.until(expected_conditions.visibility_of_element_located((By.CLASS_NAME, "flex-row-reverse")))
 
     # For each row in the table.
-    for etf_row in driver.find_elements(By.CLASS_NAME, "overflow-hidden"):
+    for etf_row in driver.find_elements(By.CLASS_NAME, "overflow-hidden")[1:]:
         etf_data = []
-
         driver.execute_script("arguments[0].scrollIntoView({behavior: 'instant', block: 'center'});", etf_row)
+        sleep(0.2)
 
-        sleep(0.3)
-        etf_row.find_element(By.CSS_SELECTOR, '.w-full button .justify-between').click()
-        sleep(0.3)
+        tag_a = etf_row.find_elements(By.TAG_NAME, "a")[0]
 
-        etf_row.find_elements(By.CSS_SELECTOR, "nav button")[1].click()
-        etf_data.append(etf_row.find_elements(By.TAG_NAME, "tbody")[1].find_elements(By.TAG_NAME, "td")[2].text)  # Ticker
-        etf_row.find_element(By.CSS_SELECTOR, '.w-full button .justify-between').click()
-        sleep(0.3)
-
-        etf_data.append(etf_row.find_element(By.TAG_NAME, "a").text)  # Name
-        etf_data.append(etf_row.find_element(By.TAG_NAME, "a").get_attribute("href"))  # URL
+        etf_data.append("-")  # Ticker
+        etf_data.append(tag_a.text)  # Name
+        etf_data.append(tag_a.get_attribute("href"))  # URL
 
         etf_list.append(etf_data)
 

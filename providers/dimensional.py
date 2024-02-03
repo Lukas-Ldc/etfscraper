@@ -28,7 +28,9 @@ def etf_dimensional(driver: webdriver, wdwait: WebDriverWait):
         pass
 
     # Interaction with legal disclaimer.
-    wdwait.until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-a-lbl="an Individual Investor"]'))).click()
+    wdwait.until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-a-lbl="Financial Professionals"]'))).click()
+    wdwait.until(expected_conditions.visibility_of_element_located((By.CLASS_NAME, "checkbox-container"))).click()
+    wdwait.until(expected_conditions.visibility_of_element_located((By.CLASS_NAME, "button-action"))).click()
 
     # Reloading page with ETF selector.
     wdwait.until(expected_conditions.visibility_of_element_located((By.CLASS_NAME, "sticky-header-container")))

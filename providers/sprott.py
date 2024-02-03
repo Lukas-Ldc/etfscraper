@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import TimeoutException, NoSuchElementException
 
 
 def etf_sprott(driver: webdriver, wdwait: WebDriverWait):
@@ -34,7 +34,10 @@ def etf_sprott(driver: webdriver, wdwait: WebDriverWait):
     for etf_row in driver.find_element(By.ID, "mainNav").find_element(By.ID, "2").find_elements(By.TAG_NAME, "li"):
         etf_data = []
         tag_a = etf_row.find_element(By.TAG_NAME, "a")
-        ticker = etf_row.find_element(By.TAG_NAME, "span").get_attribute('textContent')
+        try:
+            ticker = etf_row.find_element(By.TAG_NAME, "span").get_attribute('textContent')
+        except NoSuchElementException:
+            continue
 
         etf_data.append(ticker)  # Ticker
         etf_data.append(' '.join(str(tag_a.get_attribute('textContent')).replace(ticker, "").split()))  # Name

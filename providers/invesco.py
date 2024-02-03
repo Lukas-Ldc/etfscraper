@@ -59,10 +59,12 @@ def etf_invesco_usa(driver: webdriver, wdwait: WebDriverWait):
     etf_list = []
     driver.get("https://www.invesco.com/us/financial-products/etfs/performance")
 
+    # Intercation with cookies
+    wdwait.until(expected_conditions.element_to_be_clickable((By.ID, "onetrust-reject-all-handler"))).click()
+
     # Interaction with legal disclaimer.
-    wdwait.until(expected_conditions.element_to_be_clickable((By.ID, "Individual Investor")))
-    driver.find_element(By.CSS_SELECTOR, '[data-investor="IndividualInvestor"]').find_element(By.CLASS_NAME, "o-label").click()
-    wdwait.until(expected_conditions.element_to_be_clickable((By.CSS_SELECTOR, '[data-event-action="audience role selector click"]'))).click()
+    wdwait.until(expected_conditions.element_to_be_clickable((By.ID, "FinancialProfessional"))).click()
+    wdwait.until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "tsandcs__confirm__button"))).click()
 
     # Waiting for the presence of the table.
     wdwait.until(expected_conditions.presence_of_element_located((By.ID, "etfPerformancesTable")))

@@ -41,19 +41,22 @@ def etf_jpmorgan_irl(driver: webdriver, wdwait: WebDriverWait):
     wdwait.until(expected_conditions.element_to_be_clickable((By.CLASS_NAME, "accept"))).click()
 
     # Waiting for the presence of the table.
-    wdwait.until(expected_conditions.presence_of_element_located((By.CLASS_NAME, "ReactVirtualized__Table__Grid")))
+    wdwait.until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, ".ReactVirtualized__Table__Grid .ReactVirtualized__Table__row")))
+
+    # Getting line height & scrolling to it
+    first_line = driver.find_element(By.CSS_SELECTOR, ".ReactVirtualized__Table__Grid .ReactVirtualized__Table__row")
+    line_height = first_line.size['height']
+    last_height = driver.execute_script("return window.pageYOffset + window.innerHeight")
+    driver.execute_script("arguments[0].scrollIntoView({behavior: 'instant', block: 'center'});", first_line)
 
     etf_row = []
-    found = 10
-    while found > 0:
+    while True:
 
         # For each row.
         for row in driver.find_elements(By.CSS_SELECTOR, ".ReactVirtualized__Table__Grid .ReactVirtualized__Table__row"):
 
             # If not alread processed.
             if row not in etf_row:
-                driver.execute_script("arguments[0].scrollIntoView({behavior: 'instant', block: 'center'});", row)
-                sleep(0.3)
 
                 etf_data = []
                 class_link = row.find_elements(By.CLASS_NAME, "Link")
@@ -64,10 +67,14 @@ def etf_jpmorgan_irl(driver: webdriver, wdwait: WebDriverWait):
 
                 etf_row.append(row)
                 etf_list.append(etf_data)
-                found += 1
 
-            else:
-                found -= 0.5
+        # Scrolling and if same scroll height = end of page
+        driver.execute_script(f"window.scrollBy(0, {line_height * 2});")
+        sleep(0.4)
+        if last_height == driver.execute_script("return window.pageYOffset + window.innerHeight"):
+            break
+        else:
+            last_height = driver.execute_script("return window.pageYOffset + window.innerHeight")
 
     return etf_list
 
@@ -92,17 +99,23 @@ def etf_jpmorgan_usa(driver: webdriver, wdwait: WebDriverWait):
     except NoSuchElementException:
         pass
 
+    # Waiting for the presence of the table.
+    wdwait.until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, ".ReactVirtualized__Table__Grid .ReactVirtualized__Table__row")))
+
+    # Getting line height & scrolling to it
+    first_line = driver.find_element(By.CSS_SELECTOR, ".ReactVirtualized__Table__Grid .ReactVirtualized__Table__row")
+    line_height = first_line.size['height']
+    last_height = driver.execute_script("return window.pageYOffset + window.innerHeight")
+    driver.execute_script("arguments[0].scrollIntoView({behavior: 'instant', block: 'center'});", first_line)
+
     etf_row = []
-    found = 10
-    while found > 0:
+    while True:
 
         # For each row.
         for row in driver.find_elements(By.CSS_SELECTOR, ".ReactVirtualized__Table__Grid .ReactVirtualized__Table__row"):
 
             # If not alread processed.
             if row not in etf_row:
-                driver.execute_script("arguments[0].scrollIntoView({behavior: 'instant', block: 'center'});", row)
-                sleep(0.3)
 
                 etf_data = []
                 class_link = row.find_elements(By.CLASS_NAME, "Link")
@@ -113,9 +126,13 @@ def etf_jpmorgan_usa(driver: webdriver, wdwait: WebDriverWait):
 
                 etf_row.append(row)
                 etf_list.append(etf_data)
-                found += 1
 
-            else:
-                found -= 0.5
+        # Scrolling and if same scroll height = end of page
+        driver.execute_script(f"window.scrollBy(0, {line_height * 2});")
+        sleep(0.4)
+        if last_height == driver.execute_script("return window.pageYOffset + window.innerHeight"):
+            break
+        else:
+            last_height = driver.execute_script("return window.pageYOffset + window.innerHeight")
 
     return etf_list

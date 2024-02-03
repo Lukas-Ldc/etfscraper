@@ -28,12 +28,15 @@ def etf_direxion(driver: webdriver, wdwait: WebDriverWait):
         pass
 
     # Waiting for the presence of the table.
-    wdwait.until(expected_conditions.visibility_of_all_elements_located((By.CLASS_NAME, "dx-table__tbody-item")))
+    wdwait.until(expected_conditions.visibility_of_all_elements_located((By.CLASS_NAME, "react-tabs")))
 
     # For each row in the table.
-    for etf_row in driver.find_elements(By.CSS_SELECTOR, ".dx-table .dx-table__tbody-item"):
+    for etf_row in driver.find_element(By.CLASS_NAME, "react-tabs").find_elements(By.CSS_SELECTOR, "tbody tr"):
         etf_data = []
         tag_a = etf_row.find_elements(By.TAG_NAME, "a")
+
+        if len(tag_a) == 0 or len(tag_a[0].text) == 0:
+            continue
 
         etf_data.append(tag_a[0].text)  # Ticker
         etf_data.append(tag_a[1].text)  # Name
