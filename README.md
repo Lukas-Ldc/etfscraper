@@ -3,6 +3,9 @@ This script saves you time when searching for Exchange Traded Funds. No need to 
 
 This script is provided as-is and its use is at the sole discretion of the user. By using this script, you agree to be fully responsible for any legal repercussions that may arise from its use. Please make sure to read and understand the privacy policies and terms of use of the websites that this script is scraping data from before using this script to avoid any potential legal issues.
 
+## Repository archived
+This repository has been archived as I will no longer be maintaining it. This is because I will now be using the ETF Screener of TradingView.
+
 ## Installation and use
 You need to have <a href="https://www.python.org/" target="_blank">Python</a> and <a href="https://python-poetry.org/" target="_blank">Poetry</a> installed.
 
